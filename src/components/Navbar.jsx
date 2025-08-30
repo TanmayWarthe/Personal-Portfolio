@@ -1,46 +1,44 @@
 // src/components/Navbar.jsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react";
-import LazySpline from "./LazySpline";
 import FloatingShape from "./FloatingShape";
-
-const SPLINE_SMALL_SRC = ""; // disable remote Spline by default to avoid AccessDenied
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const rafRef = useRef(0);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 6);
+    const onScroll = () => {
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 6);
+        rafRef.current = 0;
+      });
+    };
     onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
-  const navItems = [
+  const navItems = useMemo(() => ([
     { id: "hero", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "education", label: "Education" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
-  ];
+  ]), []);
 
   return (
     <nav className={`nav-neon bg-[#0F172A]/80 backdrop-blur-md fixed w-full z-50 border-b border-[#111827] transition-shadow ${scrolled ? "shadow-[0_6px_20px_rgba(0,0,0,0.35)]" : "shadow-none"}`}>
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         <div className="flex items-center">
-          {/* Left logo area centered */}
-          {SPLINE_SMALL_SRC ? (
-            <div className="w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center">
-              <LazySpline
-                src={SPLINE_SMALL_SRC}
-                interactive={false}
-                className="w-10 h-10 sm:w-14 sm:h-14 rounded-md"
-                title="Logo 3D"
-              />
-            </div>
-          ) : (
-            <FloatingShape size={56} logoText="TW" />
-          )}
+          {/* Left logo */}
+          <FloatingShape size={56} logoText="TW" />
         </div>
 
         {/* Desktop links */}

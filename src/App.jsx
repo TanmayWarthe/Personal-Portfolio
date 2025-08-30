@@ -1,14 +1,16 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 
 // Components
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+const Footer = lazy(() => import("./components/Footer"));
 
-// Pages
+// Pages (lazy-load heavy sections)
 import Hero from "./pages/Hero";
-import Skills from "./pages/Skills";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
+const About = lazy(() => import("./pages/About"));
+const Education = lazy(() => import("./pages/Education"));
+const Skills = lazy(() => import("./pages/Skills"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 function App() {
   return (
@@ -23,24 +25,46 @@ function App() {
           <Hero />
         </section>
 
+        {/* About Me Section */}
+        <section id="about" className="py-16">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+            <About />
+          </Suspense>
+        </section>
+
+        {/* Education Section */}
+        <section id="education" className="py-16">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+            <Education />
+          </Suspense>
+        </section>
+
         {/* Skills Section */}
         <section id="skills" className="py-16">
-          <Skills />
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+            <Skills />
+          </Suspense>
         </section>
 
         {/* Projects Section */}
         <section id="projects" className="py-16">
-          <Projects />
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+            <Projects />
+          </Suspense>
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="py-16">
-          <Contact />
+          <Suspense fallback={<div className="max-w-3xl mx-auto px-6"><div className="h-32 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+            <Contact />
+          </Suspense>
         </section>
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Suspense fallback={<div className="h-16" />}> 
+        <Footer />
+      </Suspense>
     </div>
   );
 }
