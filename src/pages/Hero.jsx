@@ -1,20 +1,16 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download, ExternalLink, Code, Database, Globe, Cpu, Zap, Layers } from "lucide-react";
 import { Link } from "react-scroll";
-import heroFallback from "../assets/hero-fallback.png";
-import FloatingShape from "../components/FloatingShape";
-
-// Prefer local, reliable media to avoid external AccessDenied issues
-const HERO_VIDEO_SRC = "/hero.mp4"; // place a looping mp4 in public/hero.mp4
-const SPLINE_HERO_SRC = ""; // leave empty by default to avoid AccessDenied
 
 function Hero() {
   const phrases = useMemo(() => [
     "Building code, crafting ideas.",
     "Exploring full-stack dev & AI integrations.",
     "Learning daily. Shipping often.",
+    "Passionate about technology & innovation."
   ], []);
+  
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [deleting, setDeleting] = useState(false);
@@ -38,7 +34,8 @@ function Hero() {
     const speed = deleting ? 40 : 70;
     const t = setTimeout(step, speed);
     return () => clearTimeout(t);
-  }, [displayText, deleting, index]);
+  }, [displayText, deleting, index, phrases]);
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -52,64 +49,226 @@ function Hero() {
     show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
   };
 
+  const floatingIcons = [
+    { icon: Code, color: "from-blue-500 to-cyan-500", delay: 0, label: "Code" },
+    { icon: Database, color: "from-cyan-500 to-blue-600", delay: 0.5, label: "Data" },
+    { icon: Globe, color: "from-blue-600 to-blue-500", delay: 1, label: "Web" },
+    { icon: Cpu, color: "from-purple-500 to-pink-500", delay: 1.5, label: "Tech" },
+    { icon: Zap, color: "from-yellow-500 to-orange-500", delay: 2, label: "Fast" },
+    { icon: Layers, color: "from-green-500 to-teal-500", delay: 2.5, label: "Stack" }
+  ];
+
   return (
     <motion.section
-      className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 pt-24 md:pt-28 min-h-screen text-[#E2E8F0]"
+      className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 pt-24 md:pt-28 min-h-screen text-gray-900 dark:text-white"
       variants={container}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
     >
       
-      {/* Left Text */}
+      {/* Left Text Content */}
       <motion.div className="flex-1 z-10 text-center md:text-left max-w-xl mx-auto md:mx-0" variants={itemUp}>
-        <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight" variants={itemUp}>
+        <motion.div className="mb-4" variants={itemUp}>
+          <span className="inline-block px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full border border-blue-200 dark:border-blue-800">
+            Computer Technology Student
+          </span>
+        </motion.div>
+        
+        <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-gray-900 via-blue-800 to-cyan-600 dark:from-white dark:via-blue-200 dark:to-cyan-300 bg-clip-text text-transparent" variants={itemUp}>
           Tanmay Warthe
         </motion.h1>
-        <motion.p className="mt-4 text-lg md:text-xl text-[#94A3B8] whitespace-pre" variants={itemUp}>
+        
+        <motion.p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 whitespace-pre leading-relaxed" variants={itemUp}>
           {displayText}
-          <span className="ml-1 inline-block w-3 border-r-2 border-[#38BDF8] align-middle animate-pulse" />
+          <span className="ml-1 inline-block w-3 border-r-2 border-blue-500 align-middle animate-pulse" />
         </motion.p>
-        <motion.div className="mt-8 flex justify-center md:justify-start gap-4" variants={itemUp}>
+        
+        <motion.p className="mt-4 text-base text-gray-500 dark:text-gray-400 leading-relaxed" variants={itemUp}>
+          Aspiring developer passionate about creating innovative solutions and building the future of technology.
+        </motion.p>
+        
+        <motion.div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4" variants={itemUp}>
           <Link
             to="projects"
             smooth={true}
             duration={500}
-            className="px-6 py-3 rounded-xl bg-[#38BDF8] text-[#0F172A] font-medium hover:bg-[#22D3EE] transition transform hover:scale-105 cursor-pointer"
+            className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
           >
+            <ExternalLink className="w-4 h-4" />
             View Projects
           </Link>
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl border border-[#38BDF8] text-[#38BDF8] font-medium hover:bg-[#22D3EE] hover:text-[#0F172A] transition transform hover:scale-105"
+            className="px-6 py-3 rounded-xl border-2 border-blue-500 text-blue-600 dark:text-blue-400 font-semibold hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
           >
+            <Download className="w-4 h-4" />
             Download Résumé
           </a>
         </motion.div>
+
+        {/* Quick Stats
+        <motion.div className="mt-8 flex justify-center md:justify-start gap-6 text-sm" variants={itemUp}>
+          <div className="text-center">
+            <div className="text-xl font-bold text-blue-600 dark:text-blue-400">2+</div>
+            <div className="text-gray-500 dark:text-gray-400">Years Experience</div>
+          </div>
+          <div className="text-center">
+            <div className="text-xl font-bold text-cyan-600 dark:text-cyan-400">10+</div>
+            <div className="text-gray-500 dark:text-gray-400">Projects Built</div>
+          </div>
+          <div className="text-center">
+            <div className="text-xl font-bold text-blue-600 dark:text-blue-400">5+</div>
+            <div className="text-gray-500 dark:text-gray-400">Technologies</div>
+          </div>
+        </motion.div> */}
       </motion.div>
 
-      {/* Right visual: model disabled for now -> static image fallback */}
+      {/* Right Visual: Enhanced Design */}
       <motion.div className="flex-1 w-full mt-12 md:mt-0" variants={itemUp}>
-        <div className="mx-auto w-full max-w-[520px] aspect-[4/3] md:aspect-auto md:h-[460px] rounded-xl shadow-[0_20px_80px_rgba(6,182,212,0.12)] overflow-hidden bg-[#0B1220] ring-1 ring-[#0b2033] flex items-center justify-center">
-          <img
-            src={heroFallback}
-            alt="Hero"
-            loading="lazy"
-            width="520"
-            height="390"
-            className="w-full h-full object-cover"
-          />
+        <div className="relative mx-auto w-full max-w-[520px] aspect-[4/3] md:aspect-auto md:h-[460px]">
+          {/* Main Card */}
+          <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+            
+            {/* Enhanced Floating Icons with Labels */}
+            {floatingIcons.map((item, idx) => (
+              <motion.div
+                key={idx}
+                className={`absolute w-14 h-14 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-white shadow-lg group cursor-pointer`}
+                style={{
+                  top: `${15 + (idx % 3) * 25}%`,
+                  left: `${10 + (Math.floor(idx / 3)) * 30}%`,
+                }}
+                animate={{
+                  y: [0, -15, 0],
+                  rotate: [0, 8, -8, 0],
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  delay: item.delay,
+                  ease: "easeInOut"
+                }}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+              >
+                <item.icon className="w-7 h-7" />
+                {/* Tooltip Label */}
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  {item.label}
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Enhanced Code Snippet */}
+            <div className="absolute bottom-8 left-8 right-8 bg-gray-900 dark:bg-gray-950 rounded-xl p-4 shadow-xl border border-gray-700">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex gap-1">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <span className="text-xs text-gray-400 font-mono">portfolio.js</span>
+              </div>
+              <div className="text-xs text-gray-300 font-mono leading-relaxed">
+                <div className="text-blue-400">const</div>
+                <div className="text-yellow-400">developer</div>
+                <div className="text-gray-300">= {`{`}</div>
+                <div className="ml-4 text-green-400">name:</div>
+                <div className="ml-4 text-orange-400">'Tanmay Warthe',</div>
+                <div className="ml-4 text-green-400">passion:</div>
+                <div className="ml-4 text-orange-400">'Explore New Technologies',</div>
+                <div className="ml-4 text-green-400">status:</div>
+                <div className="ml-4 text-orange-400">'Keep Learning'</div>
+                <div className="text-gray-300">{`}`}</div>
+              </div>
+            </div>
+
+            {/* Tech Stack Icons */}
+            <div className="absolute top-6 right-6 flex flex-wrap gap-3 max-w-32">
+              {[
+                { icon: Code, color: "from-blue-500 to-cyan-500", label: "React" },
+                { icon: Database, color: "from-green-500 to-teal-500", label: "Node.js" },
+                { icon: Cpu, color: "from-yellow-500 to-orange-500", label: "Python" },
+                { icon: Layers, color: "from-purple-500 to-pink-500", label: "Django" }
+              ].map((tech, idx) => (
+                <motion.div
+                  key={tech.label}
+                  className="w-8 h-8 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 rounded-lg flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-600 group cursor-pointer"
+                  initial={{ opacity: 0, scale: 0, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ delay: 1 + idx * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                >
+                  <tech.icon className={`w-4 h-4 bg-gradient-to-r ${tech.color} bg-clip-text text-transparent`} />
+                  {/* Tooltip */}
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-10">
+                    {tech.label}
+                  </div>
+                </motion.div>
+              ))}
+              
+              {/* 3D Laptop Icon */}
+              <motion.div
+                className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg border border-indigo-200 dark:border-indigo-600 group cursor-pointer"
+                initial={{ opacity: 0, scale: 0, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: 1.5, duration: 0.5 }}
+                whileHover={{ scale: 1.1, y: -2, rotate: 5 }}
+              >
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                {/* Tooltip */}
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-10">
+                  Development
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Connection Lines */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none">
+              <motion.path
+                d="M 100 150 Q 200 100 300 200 T 500 300"
+                stroke="url(#connectionGradient)"
+                strokeWidth="2"
+                fill="none"
+                strokeDasharray="5,5"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2, delay: 1.5 }}
+              />
+              <defs>
+                <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#3B82F6" />
+                  <stop offset="100%" stopColor="#06B6D4" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-500/10 via-transparent to-transparent"></div>
+          </div>
+
+          {/* Enhanced Background Elements */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-3xl -z-10"></div>
+          <div className="absolute -inset-8 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl blur-2xl -z-20"></div>
         </div>
       </motion.div>
 
-      {/* Scroll Hint
-      <div className="absolute bottom-6 w-full flex justify-center">
+      {/* Scroll Hint */}
+      <motion.div 
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.6 }}
+      >
         <Link to="about" smooth={true} duration={500}>
-          <ArrowDown className="animate-bounce w-6 h-6 text-[#38BDF8] cursor-pointer" />
+          <ArrowDown className="animate-bounce w-6 h-6 text-blue-500 dark:text-blue-400 cursor-pointer hover:text-blue-600 dark:hover:text-blue-300 transition-colors" />
         </Link>
-      </div> */}
+      </motion.div>
     </motion.section>
   );
 }
