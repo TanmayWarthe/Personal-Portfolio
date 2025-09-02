@@ -18,7 +18,8 @@ export default function Contact() {
     script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
     script.async = true;
     script.onload = () => {
-      window.emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // You'll need to replace this with your actual EmailJS public key
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_EMAILJS_PUBLIC_KEY';
+      window.emailjs.init(publicKey);
     };
     document.body.appendChild(script);
 
@@ -50,11 +51,10 @@ export default function Contact() {
           to_name: "Tanmay Warthe"
         };
 
-        await window.emailjs.send(
-          'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-          'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-          templateParams
-        );
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+
+        await window.emailjs.send(serviceId, templateId, templateParams);
 
         setSubmitStatus('success');
         setFormData({ name: "", email: "", subject: "", message: "" });

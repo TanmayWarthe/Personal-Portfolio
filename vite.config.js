@@ -7,11 +7,13 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     sourcemap: false,
+    minify: 'terser',
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
             if (id.includes('framer-motion')) return 'vendor_framer-motion';
+            if (id.includes('three') || id.includes('@react-three')) return 'vendor_three';
             return 'vendor';
           }
         },
@@ -19,6 +21,7 @@ export default defineConfig({
         entryFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: ({name}) => {
           if (/\.(css)$/.test(name ?? '')) return 'assets/css/[name]-[hash][extname]';
+          if (/\.(png|jpe?g|svg|gif|webp)$/.test(name ?? '')) return 'assets/images/[name]-[hash][extname]';
           return 'assets/[name]-[hash][extname]';
         },
       },
@@ -27,4 +30,12 @@ export default defineConfig({
   esbuild: {
     legalComments: 'none',
   },
+  server: {
+    port: 3000,
+    open: true
+  },
+  preview: {
+    port: 4173,
+    open: true
+  }
 })
