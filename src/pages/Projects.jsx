@@ -88,7 +88,7 @@ export default function Projects() {
         <div className="grid lg:grid-cols-2 gap-8">
           {projectsData.map((project, index) => (
             <motion.div key={index} variants={item} className="group">
-              <ProjectCard 
+          <ProjectCard 
                 title={project.title}
                 description={project.description}
                 href={project.href}
@@ -97,8 +97,8 @@ export default function Projects() {
                 image={project.image}
                 category={project.category}
                 status={project.status}
-              />
-            </motion.div>
+          />
+        </motion.div>
           ))}
         </div>
       </motion.div>
@@ -154,7 +154,7 @@ export default function Projects() {
               <p className="text-gray-600 dark:text-gray-400 text-xs">Production deployment and monitoring</p>
             </div>
           </div>
-        </div>
+      </div>
       </motion.div>
     </div>
   );

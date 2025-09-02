@@ -22,7 +22,7 @@ export default function About() {
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">About Me</h2>
         <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Get to know me better and understand my journey in software development
+          Get to know me better and understand my journey in Tech.
         </p>
       </motion.div>
 
@@ -87,6 +87,7 @@ export default function About() {
           </div>
         </motion.div>
       </motion.div>
+
 
       {/* Additional Information */}
       <motion.div 

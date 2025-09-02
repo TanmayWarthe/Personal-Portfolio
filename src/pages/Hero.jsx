@@ -186,46 +186,36 @@ function Hero() {
               </div>
             </div>
 
-            {/* Tech Stack Icons */}
-            <div className="absolute top-6 right-6 flex flex-wrap gap-3 max-w-32">
-              {[
-                { icon: Code, color: "from-blue-500 to-cyan-500", label: "React" },
-                { icon: Database, color: "from-green-500 to-teal-500", label: "Node.js" },
-                { icon: Cpu, color: "from-yellow-500 to-orange-500", label: "Python" },
-                { icon: Layers, color: "from-purple-500 to-pink-500", label: "Django" }
-              ].map((tech, idx) => (
-                <motion.div
-                  key={tech.label}
-                  className="w-8 h-8 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 rounded-lg flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-600 group cursor-pointer"
-                  initial={{ opacity: 0, scale: 0, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ delay: 1 + idx * 0.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                >
-                  <tech.icon className={`w-4 h-4 bg-gradient-to-r ${tech.color} bg-clip-text text-transparent`} />
-                  {/* Tooltip */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-10">
-                    {tech.label}
-                  </div>
-                </motion.div>
-              ))}
-              
-              {/* 3D Laptop Icon */}
-              <motion.div
-                className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg border border-indigo-200 dark:border-indigo-600 group cursor-pointer"
-                initial={{ opacity: 0, scale: 0, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ delay: 1.5, duration: 0.5 }}
-                whileHover={{ scale: 1.1, y: -2, rotate: 5 }}
-              >
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                {/* Tooltip */}
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-10">
-                  Development
-                </div>
-              </motion.div>
+            {/* Device/Platform Selector Grid */}
+            <div className="absolute top-6 right-6 bg-gray-800/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-3 border border-gray-700/50">
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { icon: Code, label: "Web", active: false },
+                  { icon: Database, label: "Backend", active: false },
+                  { icon: Cpu, label: "AI/ML", active: false },
+                  { icon: Globe, label: "Full Stack", active: true },
+                  { icon: Layers, label: "DevOps", active: false },
+                  { icon: Zap, label: "Mobile", active: false }
+                ].map((item, idx) => (
+                  <motion.div
+                    key={item.label}
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 ${
+                      item.active 
+                        ? 'bg-gradient-to-br from-purple-500 to-blue-500 shadow-lg shadow-purple-500/25' 
+                        : 'bg-gray-700/50 hover:bg-gray-600/50 border border-gray-600/30'
+                    }`}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1 + idx * 0.1, duration: 0.3 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <item.icon className={`w-5 h-5 ${
+                      item.active ? 'text-white' : 'text-gray-400'
+                    }`} />
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
             {/* Connection Lines */}
