@@ -36,7 +36,7 @@ export default function Navbar() {
   ]), []);
 
   return (
-    <nav className={`nav-neon tech-grid bg-[#0F172A]/80 backdrop-blur-md fixed w-full z-50 border-b border-[#111827] transition-shadow ${scrolled ? "shadow-[0_6px_20px_rgba(0,0,0,0.35)]" : "shadow-none"}`}>
+    <nav className={`nav-neon tech-grid bg-[#0F172A]/80 backdrop-blur-md relative w-full z-50 border-b border-[#111827] transition-shadow ${scrolled ? "shadow-[0_6px_20px_rgba(0,0,0,0.35)]" : "shadow-none"}`}>
       {/* Scroll progress bar */}
       <motion.div style={{ scaleX: progressX }} className="origin-left absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500" />
       {/* Background gradient layer */}
@@ -44,14 +44,14 @@ export default function Navbar() {
       {/* Soft blur accents */}
       <div className="pointer-events-none absolute -left-24 top-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-cyan-500/15 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 w-36 h-36 rounded-full bg-blue-500/10 blur-3xl" />
-      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         <div className="flex items-center">
           {/* Left logo */}
           <FloatingShape size={56} logoText="TW" />
         </div>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navItems.map((it) => (
             <Link
               key={it.id}
@@ -70,7 +70,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile menu button */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={() => setIsOpen((s) => !s)}
             aria-label="Toggle menu"
@@ -92,11 +92,11 @@ export default function Navbar() {
               open: { height: "auto", opacity: 1, transition: { when: "beforeChildren", staggerChildren: 0.06 } },
               closed: { height: 0, opacity: 0, transition: { when: "afterChildren" } },
             }}
-            className="md:hidden overflow-hidden border-t border-[#111827] bg-[#0B1220]"
+            className="lg:hidden overflow-hidden border-t border-[#111827] bg-[#0B1220]"
           >
             <motion.div
               variants={{ open: { opacity: 1, transition: { staggerChildren: 0.06 } }, closed: { opacity: 0 } }}
-              className="px-6 py-4 space-y-3"
+              className="px-4 sm:px-6 py-4 space-y-3"
             >
               {navItems.map((it) => (
                 <motion.div key={it.id} variants={{ open: { y: 0, opacity: 1 }, closed: { y: -6, opacity: 0 } }}>

@@ -35,19 +35,19 @@ export default function Education() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       <motion.div 
-        className="text-center mb-12"
+        className="text-center mb-8 sm:mb-12"
         variants={item}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
           Educational Journey
         </h2>
         <div className="mx-auto w-20 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mb-4" />
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
           My academic path through computer technology and engineering, building a strong foundation for innovation and problem-solving
         </p>
       </motion.div>
@@ -60,34 +60,34 @@ export default function Education() {
         viewport={{ once: true, amount: 0.25 }}
       >
         {/* Subtle Timeline Line */}
-        <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-cyan-300 to-blue-200 dark:from-blue-800 dark:via-cyan-700 dark:to-blue-800" />
+        <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-cyan-300 to-blue-200 dark:from-blue-800 dark:via-cyan-700 dark:to-blue-800" />
         
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {educationData.map((edu, index) => (
             <motion.div key={index} variants={item} className="relative group">
               {/* Timeline Dot */}
               <motion.div 
-                className="absolute left-5 top-6 w-3 h-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full border-3 border-white dark:border-gray-900 shadow-lg"
+                className="absolute left-3 sm:left-5 top-6 w-3 h-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full border-3 border-white dark:border-gray-900 shadow-lg"
                 whileHover={{ scale: 1.2 }}
                 transition={{ duration: 0.3 }}
               />
               
               {/* Content Card */}
-              <div className="ml-16 p-6 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-500 group-hover:border-blue-200 dark:group-hover:border-blue-700">
+              <div className="ml-12 sm:ml-16 p-4 sm:p-6 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-500 group-hover:border-blue-200 dark:group-hover:border-blue-700">
                 
                 {/* Header Section */}
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4 sm:mb-6">
                   <div className="flex-1">
                     {/* Degree Icon and Title */}
                     <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${edu.color} rounded-xl flex items-center justify-center text-2xl shadow-lg`}>
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${edu.color} rounded-xl flex items-center justify-center text-xl sm:text-2xl shadow-lg`}>
                         {edu.icon}
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                           {edu.degree}
                         </h3>
-                        <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400">
+                        <h4 className="text-base sm:text-lg font-semibold text-blue-600 dark:text-blue-400">
                           {edu.institution}
                         </h4>
                       </div>
@@ -110,15 +110,15 @@ export default function Education() {
                 </div>
                 
                 {/* Description */}
-                <div className="mb-6">
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
+                <div className="mb-4 sm:mb-6">
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
                     {edu.description}
                   </p>
                 </div>
                 
                 {/* Achievements */}
                 <div className="space-y-3">
-                  <h5 className="text-base font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                  <h5 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
                     Key Achievements & Skills
                   </h5>
@@ -126,7 +126,7 @@ export default function Education() {
                     {edu.achievements.map((achievement, idx) => (
                       <motion.span 
                         key={idx} 
-                        className="px-3 py-1.5 text-xs bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 cursor-pointer"
+                        className="px-2 sm:px-3 py-1 sm:py-1.5 text-xs bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 cursor-pointer"
                         whileHover={{ scale: 1.05, y: -1 }}
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -139,7 +139,7 @@ export default function Education() {
                 </div>
 
                 {/* Progress Indicator */}
-                <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-700">
+                <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-100 dark:border-gray-700">
                   <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-1.5">
                     <span>Program Progress</span>
                     <span>{index === 0 ? "In Progress" : "Completed"}</span>

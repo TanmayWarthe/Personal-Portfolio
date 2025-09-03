@@ -26,19 +26,19 @@ export default function Projects() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       <motion.div 
-        className="text-center mb-12"
+        className="text-center mb-8 sm:mb-12"
         variants={item}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
           Featured Projects
         </h2>
         <div className="mx-auto w-20 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mb-4" />
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
           Showcasing my technical skills through innovative projects that solve real-world problems
         </p>
       </motion.div>
@@ -85,7 +85,7 @@ export default function Projects() {
         </div> */}
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {projectsData.map((project, index) => (
             <motion.div key={index} variants={item} className="group">
           <ProjectCard 
@@ -111,9 +111,9 @@ export default function Projects() {
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
-          <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+        <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-4 sm:p-6 border border-gray-200 dark:border-gray-700">
+          <div className="text-center mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
               Development Approach
             </h3>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-sm">
@@ -121,36 +121,36 @@ export default function Projects() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-lg">1</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-sm sm:text-lg">1</span>
               </div>
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Planning</h4>
+              <h4 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white mb-1">Planning</h4>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Requirements analysis and architecture design</p>
             </div>
             
             <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-lg">2</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-sm sm:text-lg">2</span>
               </div>
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Development</h4>
+              <h4 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white mb-1">Development</h4>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Clean code implementation and testing</p>
             </div>
             
             <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-lg">3</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-sm sm:text-lg">3</span>
               </div>
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Testing</h4>
+              <h4 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white mb-1">Testing</h4>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Comprehensive testing and quality assurance</p>
             </div>
             
             <div className="text-center group">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-lg">4</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-sm sm:text-lg">4</span>
               </div>
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Deployment</h4>
+              <h4 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white mb-1">Deployment</h4>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Production deployment and monitoring</p>
             </div>
           </div>

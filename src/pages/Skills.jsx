@@ -117,7 +117,7 @@ export default function Skills() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-6 space-y-8">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-6 sm:space-y-8">
       {/* Header Section */}
       <motion.div 
         className="text-center"
@@ -126,17 +126,17 @@ export default function Skills() {
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
           Skills & Technologies
         </h2>
-        <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Here are the technologies and tools I work with on a daily basis
         </p>
       </motion.div>
 
       {/* Skills Grid */}
       <motion.div 
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -149,15 +149,15 @@ export default function Skills() {
             className="group"
           >
             {/* Skill Card */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 text-center hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-6 text-center hover:shadow-lg transition-shadow duration-300">
               
               {/* Icon */}
-              <div className="mb-4">
-                <i className={`${skill.icon} text-4xl`} style={{ color: skill.color }}></i>
+              <div className="mb-3 sm:mb-4">
+                <i className={`${skill.icon} text-3xl sm:text-4xl`} style={{ color: skill.color }}></i>
               </div>
               
               {/* Skill Name */}
-              <h3 className="text-sm font-medium text-gray-800 dark:text-gray-200">
+              <h3 className="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200">
                 {skill.name}
               </h3>
             </div>
@@ -173,25 +173,25 @@ export default function Skills() {
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Programming Languages */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Programming Languages</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white mb-4">Programming Languages</h3>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Python</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">Python</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div className="bg-blue-500 h-2 rounded-full" style={{ width: '90%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 dark:text-gray-300">JavaScript</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">JavaScript</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div className="bg-blue-500 h-2 rounded-full" style={{ width: '85%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 dark:text-gray-300">C/C++</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">C/C++</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div className="bg-blue-500 h-2 rounded-full" style={{ width: '75%' }}></div>
                 </div>
@@ -200,23 +200,23 @@ export default function Skills() {
           </div>
 
           {/* Frontend */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Frontend</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white mb-4">Frontend</h3>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 dark:text-gray-300">React</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">React</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div className="bg-blue-500 h-2 rounded-full" style={{ width: '88%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 dark:text-gray-300">HTML/CSS</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">HTML/CSS</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div className="bg-blue-500 h-2 rounded-full" style={{ width: '95%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Tailwind</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">Tailwind</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div className="bg-blue-500 h-2 rounded-full" style={{ width: '85%' }}></div>
                 </div>
@@ -225,23 +225,23 @@ export default function Skills() {
           </div>
 
           {/* Backend & Database */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Backend & Database</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white mb-4">Backend & Database</h3>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Django</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">Django</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div className="bg-blue-500 h-2 rounded-full" style={{ width: '80%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 dark:text-gray-300">Node.js</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">Node.js</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div className="bg-blue-500 h-2 rounded-full" style={{ width: '82%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 dark:text-gray-300">MongoDB</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">MongoDB</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div className="bg-blue-500 h-2 rounded-full" style={{ width: '75%' }}></div>
                 </div>
@@ -259,21 +259,21 @@ export default function Skills() {
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 text-center">Technologies I Work With</h3>
+        <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white mb-4 text-center">Technologies I Work With</h3>
           <div className="relative">
             <div 
               ref={tickerRef}
-              className="flex gap-6 overflow-hidden py-4"
+              className="flex gap-4 sm:gap-6 overflow-hidden py-4"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {[...skills, ...skills].map((skill, index) => (
                 <div
                   key={`${skill.name}-${index}`}
-                  className="flex-shrink-0 flex items-center gap-3 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
+                  className="flex-shrink-0 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
                 >
-                  <i className={`${skill.icon} text-lg`} style={{ color: skill.color }}></i>
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <i className={`${skill.icon} text-base sm:text-lg`} style={{ color: skill.color }}></i>
+                  <span className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
                     {skill.name}
                   </span>
                 </div>

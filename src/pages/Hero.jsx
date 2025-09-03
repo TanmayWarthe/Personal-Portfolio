@@ -60,7 +60,7 @@ function Hero() {
 
   return (
     <motion.section
-      className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 pt-24 md:pt-28 min-h-screen text-gray-900 dark:text-white"
+      className="relative flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 md:pt-28 min-h-screen text-gray-900 dark:text-white"
       variants={container}
       initial="hidden"
       whileInView="show"
@@ -68,18 +68,18 @@ function Hero() {
     >
       
       {/* Left Text Content */}
-      <motion.div className="flex-1 z-10 text-center md:text-left max-w-xl mx-auto md:mx-0" variants={itemUp}>
+      <motion.div className="flex-1 z-10 text-center lg:text-left max-w-xl mx-auto lg:mx-0" variants={itemUp}>
         <motion.div className="mb-4" variants={itemUp}>
           <span className="inline-block px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full border border-blue-200 dark:border-blue-800">
             Computer Technology Student
           </span>
         </motion.div>
         
-        <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-gray-900 via-blue-800 to-cyan-600 dark:from-white dark:via-blue-200 dark:to-cyan-300 bg-clip-text text-transparent" variants={itemUp}>
+        <motion.h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-gray-900 via-blue-800 to-cyan-600 dark:from-white dark:via-blue-200 dark:to-cyan-300 bg-clip-text text-transparent" variants={itemUp}>
           Tanmay Warthe
         </motion.h1>
         
-        <motion.p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 whitespace-pre leading-relaxed" variants={itemUp}>
+        <motion.p className="mt-4 text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 whitespace-pre leading-relaxed" variants={itemUp}>
           {displayText}
           <span className="ml-1 inline-block w-3 border-r-2 border-blue-500 align-middle animate-pulse" />
         </motion.p>
@@ -88,7 +88,7 @@ function Hero() {
           Aspiring developer passionate about creating innovative solutions and building the future of technology.
         </motion.p>
         
-        <motion.div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4" variants={itemUp}>
+        <motion.div className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4" variants={itemUp}>
           <Link
             to="projects"
             smooth={true}
@@ -127,8 +127,8 @@ function Hero() {
       </motion.div>
 
       {/* Right Visual: Enhanced Design */}
-      <motion.div className="flex-1 w-full mt-12 md:mt-0" variants={itemUp}>
-        <div className="relative mx-auto w-full max-w-[520px] aspect-[4/3] md:aspect-auto md:h-[460px]">
+      <motion.div className="flex-1 w-full mt-8 sm:mt-12 lg:mt-0" variants={itemUp}>
+        <div className="relative mx-auto w-full max-w-[400px] sm:max-w-[520px] aspect-[4/3] lg:aspect-auto lg:h-[460px]">
           {/* Main Card */}
           <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
             
@@ -136,7 +136,7 @@ function Hero() {
             {floatingIcons.map((item, idx) => (
               <motion.div
                 key={idx}
-                className={`absolute w-14 h-14 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-white shadow-lg group cursor-pointer`}
+                className={`absolute w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-white shadow-lg group cursor-pointer`}
                 style={{
                   top: `${15 + (idx % 3) * 25}%`,
                   left: `${10 + (Math.floor(idx / 3)) * 30}%`,
@@ -154,7 +154,7 @@ function Hero() {
                 }}
                 whileHover={{ scale: 1.1, rotate: 5 }}
               >
-                <item.icon className="w-7 h-7" />
+                <item.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
                 {/* Tooltip Label */}
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                   {item.label}
@@ -163,7 +163,7 @@ function Hero() {
             ))}
 
             {/* Enhanced Code Snippet */}
-            <div className="absolute bottom-8 left-8 right-8 bg-gray-900 dark:bg-gray-950 rounded-xl p-4 shadow-xl border border-gray-700">
+            <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 right-4 sm:right-6 lg:right-8 bg-gray-900 dark:bg-gray-950 rounded-xl p-3 sm:p-4 shadow-xl border border-gray-700">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex gap-1">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -172,7 +172,7 @@ function Hero() {
                 </div>
                 <span className="text-xs text-gray-400 font-mono">portfolio.js</span>
               </div>
-              <div className="text-xs text-gray-300 font-mono leading-relaxed">
+              <div className="text-xs sm:text-sm text-gray-300 font-mono leading-relaxed">
                 <div className="text-blue-400">const</div>
                 <div className="text-yellow-400">developer</div>
                 <div className="text-gray-300">= {`{`}</div>
@@ -187,7 +187,7 @@ function Hero() {
             </div>
 
             {/* Device/Platform Selector Grid */}
-            <div className="absolute top-6 right-6 bg-gray-800/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-3 border border-gray-700/50">
+            <div className="absolute top-3 sm:top-4 lg:top-6 right-3 sm:right-4 lg:right-6 bg-gray-800/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl p-2 sm:p-3 border border-gray-700/50">
               <div className="grid grid-cols-3 gap-2">
                 {[
                   { icon: Code, label: "Web", active: false },
@@ -199,7 +199,7 @@ function Hero() {
                 ].map((item, idx) => (
                   <motion.div
                     key={item.label}
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 ${
+                    className={`w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 ${
                       item.active 
                         ? 'bg-gradient-to-br from-purple-500 to-blue-500 shadow-lg shadow-purple-500/25' 
                         : 'bg-gray-700/50 hover:bg-gray-600/50 border border-gray-600/30'
@@ -210,7 +210,7 @@ function Hero() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <item.icon className={`w-5 h-5 ${
+                    <item.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${
                       item.active ? 'text-white' : 'text-gray-400'
                     }`} />
                   </motion.div>

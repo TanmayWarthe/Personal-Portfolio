@@ -26,36 +26,36 @@ function App() {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="py-16">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <section id="about" className="py-8 sm:py-12 lg:py-16">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
             <About />
           </Suspense>
         </section>
 
         {/* Education Section */}
-        <section id="education" className="py-16">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <section id="education" className="py-8 sm:py-12 lg:py-16">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
             <Education />
           </Suspense>
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-16">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <section id="skills" className="py-8 sm:py-12 lg:py-16">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
             <Skills />
           </Suspense>
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-16">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <section id="projects" className="py-8 sm:py-12 lg:py-16">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
             <Projects />
           </Suspense>
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-16">
-          <Suspense fallback={<div className="max-w-3xl mx-auto px-6"><div className="h-32 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <section id="contact" className="py-8 sm:py-12 lg:py-16">
+          <Suspense fallback={<div className="max-w-3xl mx-auto px-4 sm:px-6"><div className="h-32 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
             <Contact />
           </Suspense>
         </section>
