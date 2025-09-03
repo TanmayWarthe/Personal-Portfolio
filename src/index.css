@@ -72,6 +72,11 @@ html, body {
   pointer-events: none;
 }
 
+/* Active state underline for navbar items */
+.is-active.nav-underline, .group:hover .nav-underline {
+  transform: scaleX(1);
+}
+
 /* Respect reduced motion to improve perf on low-power devices */
 @media (prefers-reduced-motion: reduce) {
   * {

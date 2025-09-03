@@ -28,11 +28,13 @@ export default function FloatingShape({ size = 56, className = "", logoText = "T
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{ width: px, height: px }}
-      className={`relative rounded-xl bg-[#0B1220]/90 overflow-hidden flex items-center justify-center animate-float shadow-[0_8px_30px_rgba(34,211,238,0.10)] backdrop-blur-sm ${className}`}
+      className={`group relative rounded-xl bg-[#0B1220]/90 overflow-hidden flex items-center justify-center animate-float shadow-[0_8px_30px_rgba(34,211,238,0.10)] hover:shadow-[0_10px_36px_rgba(56,189,248,0.18)] backdrop-blur-sm border border-cyan-400/15 transition-shadow ${className}`}
       aria-label="Floating logo"
     >
       {/* Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(34,211,238,0.25),rgba(13,17,23,0)_60%)] animate-glow" />
+      {/* Subtle top highlight */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/6 via-transparent to-transparent opacity-70" />
 
       {/* Rotating ring */}
       <svg viewBox="0 0 100 100" className="absolute w-[115%] h-[115%] animate-spin-slower">
@@ -46,11 +48,21 @@ export default function FloatingShape({ size = 56, className = "", logoText = "T
         <circle cx="50" cy="50" r="32" fill="none" stroke="#0B1220" strokeWidth="10" opacity="0.5" />
       </svg>
 
+      {/* Orbiting accent dot */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+        <div className="relative w-[82%] h-[82%] animate-spin-slower">
+          <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.8)] opacity-90" />
+        </div>
+      </div>
+
+      {/* Inner soft gradient orb */}
+      <div className="absolute inset-2 rounded-[10px] bg-gradient-to-br from-cyan-500/10 via-sky-400/5 to-transparent" />
+
       {/* Logo content */}
       {logoSrc ? (
         <img src={logoSrc} alt="logo" className="relative z-[1] w-2/3 h-2/3 object-contain drop-shadow-[0_0_12px_rgba(34,211,238,0.35)]" />
       ) : (
-        <span className="relative z-[1] text-[#E2E8F0] text-sm font-semibold tracking-wider">
+        <span className="relative z-[1] text-[#E2E8F0] text-base md:text-sm font-semibold tracking-wider">
           <span className="bg-gradient-to-br from-[#E0F2FE] to-[#67E8F9] bg-clip-text text-transparent">
             {logoText}
           </span>
