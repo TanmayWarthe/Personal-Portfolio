@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from "react";
 
+
 // Components
 import Navbar from "./components/Navbar";
 const Footer = lazy(() => import("./components/Footer"));
