@@ -6,7 +6,8 @@ export default function Contact() {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
+    company: ""
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,7 +19,7 @@ export default function Contact() {
     script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
     script.async = true;
     script.onload = () => {
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_EMAILJS_PUBLIC_KEY';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'xu-alu3FkS-WZWtk_';
       window.emailjs.init(publicKey);
     };
     document.body.appendChild(script);
@@ -40,6 +41,12 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus(null);
     
+    // Honeypot check: if filled, treat as spam and silently ignore
+    if (formData.company && formData.company.trim().length > 0) {
+      setIsSubmitting(false);
+      return;
+    }
+    
     try {
       // EmailJS integration (you'll need to set up EmailJS account)
       if (window.emailjs) {
@@ -51,18 +58,18 @@ export default function Contact() {
           to_name: "Tanmay Warthe"
         };
 
-        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_l5wokda';
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_zdj7wvw';
 
         await window.emailjs.send(serviceId, templateId, templateParams);
 
         setSubmitStatus('success');
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "", company: "" });
       } else {
         // Fallback: simulate form submission
         await new Promise(resolve => setTimeout(resolve, 1000));
         setSubmitStatus('success');
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "", company: "" });
       }
     } catch (error) {
       console.error("Error sending email:", error);
@@ -148,7 +155,7 @@ export default function Contact() {
             
             {/* Success/Error Messages */}
             {submitStatus === 'success' && (
-              <div className="mb-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+              <div role="status" aria-live="polite" aria-atomic="true" className="mb-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                 <p className="text-green-800 dark:text-green-200 text-sm">
                   ✅ Thank you for your message! I'll get back to you within 24 hours.
                 </p>
@@ -156,7 +163,7 @@ export default function Contact() {
             )}
             
             {submitStatus === 'error' && (
-              <div className="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+              <div role="status" aria-live="polite" aria-atomic="true" className="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                 <p className="text-red-800 dark:text-red-200 text-sm">
                   ❌ There was an error sending your message. Please try again or contact me directly via email.
                 </p>
@@ -164,6 +171,19 @@ export default function Contact() {
             )}
             
             <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+              {/* Honeypot field (hidden from users) */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="company" className="sr-only">Company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.company}
+                  onChange={handleChange}
+                />
+              </div>
               <div>
                 <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Name *
@@ -191,6 +211,9 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  inputMode="email"
+                  autoComplete="email"
+                  pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
                   className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-colors text-sm sm:text-base"
                   placeholder="your.email@example.com"
                 />

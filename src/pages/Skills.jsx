@@ -181,7 +181,7 @@ export default function Skills() {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-300">Python</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '90%' }}></div>
+                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '82%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
@@ -206,7 +206,7 @@ export default function Skills() {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-300">React</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '65%' }}></div>
+                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '55%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
@@ -218,7 +218,7 @@ export default function Skills() {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-300">Tailwind</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '70%' }}></div>
+                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '65%' }}></div>
                 </div>
               </div>
             </div>
@@ -231,19 +231,19 @@ export default function Skills() {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-300">Django</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '80%' }}></div>
+                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '70%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-300">Node.js</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '82%' }}></div>
+                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '33%' }}></div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-300">MongoDB</span>
                 <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '75%' }}></div>
+                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '40%' }}></div>
                 </div>
               </div>
             </div>

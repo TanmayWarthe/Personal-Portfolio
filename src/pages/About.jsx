@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import profileImg from "../assets/profile.jpg";
 
 export default function About() {
   const container = {
@@ -72,16 +73,21 @@ export default function About() {
         </motion.div>
 
         <motion.div variants={item} className="relative">
-          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 sm:p-8 flex items-center justify-center shadow-sm">
-            <div className="text-center space-y-4">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
-                <svg className="w-12 h-12 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+          {/* Profile image card */}
+          <div className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg">
+            <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-purple-500/10 blur-2xl -z-10" />
+            <div className="p-3 sm:p-4">
+              <div className="relative aspect-square w-full max-w-[220px] sm:max-w-[260px] md:max-w-[300px] mx-auto overflow-hidden rounded-full ring-2 ring-blue-500/20 dark:ring-blue-400/20">
+                <img
+                  src={profileImg}
+                  alt="Tanmay Warthe portrait"
+                  loading="lazy"
+                  className="h-full w-full object-cover scale-105 hover:scale-110 transition-transform duration-700 ease-out"
+                />
               </div>
-              <div className="space-y-2">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white">Developer & Creator</h4>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">Passionate about building amazing web experiences</p>
+              <div className="mt-3 text-center">
+                <h4 className="text-sm sm:text-base font-semibold text-gray-800 dark:text-white">Tanmay Warthe</h4>
+                <p className="text-xs text-gray-600 dark:text-gray-300">Developer • Designer • Learner</p>
               </div>
             </div>
           </div>

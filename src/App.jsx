@@ -10,6 +10,7 @@ import Hero from "./pages/Hero";
 const About = lazy(() => import("./pages/About"));
 const Education = lazy(() => import("./pages/Education"));
 const Skills = lazy(() => import("./pages/Skills"));
+const Experience = lazy(() => import("./pages/Experience"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
 
@@ -37,6 +38,13 @@ function App() {
         <section id="education" className="py-8 sm:py-12 lg:py-16">
           <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
             <Education />
+          </Suspense>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="py-8 sm:py-12 lg:py-16">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+            <Experience />
           </Suspense>
         </section>
 
