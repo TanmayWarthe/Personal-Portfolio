@@ -44,7 +44,7 @@ export default function About() {
             </p>
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
               I specialize in modern web technologies and enjoy working on projects that challenge me to 
-              learn and grow. From Django backends to React frontends, I love bringing ideas to life 
+              learn and grow. I love bringing ideas to life 
               through clean, efficient code.
             </p>
           </div>
@@ -52,21 +52,21 @@ export default function About() {
           <div className="space-y-4">
             <h4 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">What I Do</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <div className="flex items-center space-x-3">
+              {/* <div className="flex items-center space-x-3">
                 <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Full-Stack Development</span>
-              </div>
+                <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Development</span>
+              </div> */}
               <div className="flex items-center space-x-3">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Web Applications</span>
               </div>
-              <div className="flex items-center space-x-3">
+              {/* <div className="flex items-center space-x-3">
                 <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
                 <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">API Development</span>
-              </div>
+              </div> */}
               <div className="flex items-center space-x-3">
                 <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Database Design</span>
+                <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Design</span>
               </div>
             </div>
           </div>

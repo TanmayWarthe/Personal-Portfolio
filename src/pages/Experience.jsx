@@ -18,12 +18,12 @@ export default function Experience() {
       company: "SSIT Pvt Ltd Nagpur",
       location: "Nagpur, Maharashtra, India · On-site",
       description:
-        "Contributed to real-world projects as an intern focusing on modern web development. Helped build clean UI, wire APIs, and test features.",
+        "Learned about the basics of web development and how to build a website. Helped build clean UI, and test features.",
       highlights: [
-        "Implemented responsive UI components",
-        "Collaborated on API integration",
-        "Wrote testable, maintainable code",
-        "Participated in code reviews",
+        "Gained proficiency in Python and Django framework",
+        "Learned and applied MVT (Model-View-Template) architecture principles",
+        "Understood and implemented best practices for project structure",
+        "Developed foundational skills in web development using Python and Django",
       ],
       icon: "🧑‍💻",
       color: "from-blue-500 to-cyan-500",

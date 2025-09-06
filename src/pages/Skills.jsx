@@ -21,21 +21,21 @@ export default function Skills() {
       icon: "devicon-react-original",
       color: "#61DAFB"
     },
-    {
-      name: "Node.js",
-      icon: "devicon-nodejs-plain",
-      color: "#339933"
-    },
-    {
-      name: "MongoDB",
-      icon: "devicon-mongodb-plain",
-      color: "#47A248"
-    },
-    {
-      name: "TypeScript",
-      icon: "devicon-typescript-plain",
-      color: "#3178C6"
-    },
+    // {
+    //   name: "Node.js",
+    //   icon: "devicon-nodejs-plain",
+    //   color: "#339933"
+    // },
+    // {
+    //   name: "MongoDB",
+    //   icon: "devicon-mongodb-plain",
+    //   color: "#47A248"
+    // },
+    // {
+    //   name: "TypeScript",
+    //   icon: "devicon-typescript-plain",
+    //   color: "#3178C6"
+    // },
     {
       name: "JavaScript",
       icon: "devicon-javascript-plain",
