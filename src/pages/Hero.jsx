@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { ArrowDown, Download, ExternalLink, Code, Database, Globe, Cpu, Zap, Layers } from "lucide-react";
 import { Link } from "react-scroll";
