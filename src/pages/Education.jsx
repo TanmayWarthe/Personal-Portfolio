@@ -148,7 +148,7 @@ export default function Education() {
                     <motion.div 
                       className={`h-1.5 rounded-full bg-gradient-to-r ${edu.color}`}
                       initial={{ width: 0 }}
-                      whileInView={{ width: index === 0 ? "65%" : "100%" }}
+                      whileInView={{ width: index === 0 ? "48%" : "100%" }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.5, delay: 0.5 }}
                     />
