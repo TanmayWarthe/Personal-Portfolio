@@ -29,7 +29,7 @@ export default function Certificates() {
       id: 1,
       title: "GenAI Powered Data Analytics",
       issuer: "Forage",
-      date: "2024",
+      date: "2025",
       description: "Advanced certification in Generative AI applications for data analytics, covering AI-powered insights and automated data processing.",
       skills: ["Generative AI", "Data Analytics", "Machine Learning", "Python", "Data Visualization"],
       icon: "🤖",
@@ -40,7 +40,7 @@ export default function Certificates() {
       id: 2,
       title: "Python (Basic)",
       issuer: "HackerRank",
-      date: "2024",
+      date: "2025",
       description: "Fundamental Python programming certification covering basic syntax, data structures, and problem-solving techniques.",
       skills: ["Python", "Data Structures", "Algorithms", "Problem Solving", "Programming Logic"],
       icon: "🐍",
@@ -51,7 +51,7 @@ export default function Certificates() {
       id: 3,
       title: "Linux Fundamentals",
       issuer: "TrainWithShubham",
-      date: "2024",
+      date: "2025",
       description: "Comprehensive Linux certification covering command line operations, system administration, and shell scripting.",
       skills: ["Linux", "Command Line", "Shell Scripting", "System Administration", "File Systems"],
       icon: "🐧",
@@ -62,7 +62,7 @@ export default function Certificates() {
       id: 4,
       title: "HackNexus Competition",
       issuer: "Yeshwantrao Chavan College of Engineering - YCCE",
-      date: "2024",
+      date: "2025",
       description: "Competitive programming and hackathon certification demonstrating problem-solving skills and algorithmic thinking.",
       skills: ["Competitive Programming", "Algorithms", "Data Structures", "Problem Solving", "Time Complexity"],
       icon: "🏆",
@@ -73,7 +73,7 @@ export default function Certificates() {
       id: 5,
       title: "Introduction to Retrieval Augmented Generation",
       issuer: "IBM",
-      date: "2024",
+      date: "2025",
       description: "Specialized certification in RAG systems, covering advanced AI techniques for information retrieval and generation.",
       skills: ["RAG", "Natural Language Processing", "Vector Databases", "AI Systems", "Information Retrieval"],
       icon: "🧠",
@@ -84,7 +84,7 @@ export default function Certificates() {
       id: 6,
       title: "Ethical Considerations for Generative AI",
       issuer: "IBM",
-      date: "2024",
+      date: "2025",
       description: "Critical certification covering ethical frameworks, responsible AI development, and governance in generative AI systems.",
       skills: ["AI Ethics", "Responsible AI", "Governance", "Bias Detection", "Fairness"],
       icon: "⚖️",
@@ -95,7 +95,7 @@ export default function Certificates() {
       id: 7,
       title: "Deloitte Technology Job Simulation",
       issuer: "Deloitte",
-      date: "2024",
+      date: "2025",
       description: "Professional simulation certification from Deloitte covering technology consulting, project management, and client solutions.",
       skills: ["Technology Consulting", "Project Management", "Client Solutions", "Business Analysis", "Strategic Planning"],
       icon: "💼",
@@ -107,10 +107,10 @@ export default function Certificates() {
       title: "Viksit Bharat Young Leaders Dialogue (VBYLD) 2026 Online Quiz",
       issuer: "Ministry of Youth Affairs & Sports, Government of India",
       date: "2025",
-      description: "Professional simulation certification from Deloitte covering technology consulting, project management, and client solutions.",
-      skills: ["Technology Consulting", "Project Management", "Client Solutions", "Business Analysis", "Strategic Planning"],
-      icon: "💼",
-      color: "from-slate-500 to-gray-600",
+      description: "Successfully completed the VBYLD 2026 Online Quiz demonstrating knowledge and engagement with India's development vision. This quiz covered topics related to youth leadership, national development goals, and the Viksit Bharat initiative.",
+      skills: ["National Development", "Youth Leadership", "Civic Engagement", "India's Vision 2047", "Government Initiatives"],
+      icon: "🇮🇳",
+      color: "from-orange-500 to-green-500",
       imagePath: "/certify/VBYLD.jpg"
     },
   ];
@@ -186,7 +186,7 @@ export default function Certificates() {
         ))}
       </motion.div>
 
-      {/* Modal - keeping existing modal */}
+      {/* Simple Modal */}
       <AnimatePresence>
         {isModalOpen && selectedCert && (
           <motion.div
@@ -196,53 +196,86 @@ export default function Certificates() {
             exit={{ opacity: 0 }}
             onClick={closeModal}
           >
+            {/* Backdrop */}
             <div className="absolute inset-0 bg-black/60" />
             
-            <motion.div
-              className="relative bg-white rounded-xl max-w-3xl w-full max-h-[85vh] overflow-hidden"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="p-6 border-b border-gray-100">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 bg-gradient-to-r ${selectedCert.color} rounded-lg flex items-center justify-center text-xl`}>
-                      {selectedCert.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900">{selectedCert.title}</h3>
-                      <p className="text-sm text-gray-500">{selectedCert.issuer}</p>
-                    </div>
+                         {/* Modal Content */}
+             <motion.div
+               className="relative bg-white dark:bg-gray-900 rounded-xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl scrollbar-hide"
+               initial={{ scale: 0.9, opacity: 0 }}
+               animate={{ scale: 1, opacity: 1 }}
+               exit={{ scale: 0.9, opacity: 0 }}
+               transition={{ duration: 0.2 }}
+               onClick={(e) => e.stopPropagation()}
+               style={{
+                 scrollbarWidth: 'none',
+                 msOverflowStyle: 'none'
+               }}
+             >
+              {/* Header */}
+              <div className="sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 p-4 flex items-center justify-between z-10">
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 bg-gradient-to-r ${selectedCert.color} rounded-lg flex items-center justify-center text-xl`}>
+                    {selectedCert.icon}
                   </div>
-                  <button
-                    onClick={closeModal}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{selectedCert.title}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{selectedCert.issuer}</p>
+                  </div>
                 </div>
+                
+                {/* Simple Close Button */}
+                <button
+                  onClick={closeModal}
+                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                >
+                  <svg className="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
               </div>
 
-              <div className="p-6">
-                <div className="bg-gray-50 rounded-lg p-4">
+              {/* Certificate Info */}
+              <div className="p-6 space-y-4">
+                {/* Description */}
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">About</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    {selectedCert.description}
+                  </p>
+                </div>
+
+                {/* Skills */}
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Skills & Technologies</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedCert.skills.map((skill, idx) => (
+                      <span 
+                        key={idx}
+                        className="px-3 py-1 text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full border border-blue-200 dark:border-blue-800"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Certificate Image */}
+                <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
                   <img
                     src={selectedCert.imagePath}
                     alt={selectedCert.title}
-                    className="w-full h-auto rounded-lg"
+                    className="w-full h-auto rounded-lg shadow-md"
                     onError={(e) => {
                       e.target.style.display = 'none';
                       e.target.nextSibling.style.display = 'block';
                     }}
                   />
-                  <div className="hidden text-center py-12 text-gray-400">
-                    <svg className="w-12 h-12 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="hidden text-center py-8 text-gray-400">
+                    <svg className="w-10 h-10 mx-auto mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <p className="text-sm">Certificate image not available</p>
+                    <p className="text-xs">Certificate image not available</p>
                   </div>
                 </div>
               </div>
