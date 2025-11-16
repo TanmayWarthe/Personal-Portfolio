@@ -13,16 +13,16 @@ export default function Projects() {
   };
 
   const projectsData = [
-    {
-      title: "QuickMeds - Online Pharmacy",
-      description: "A comprehensive Django-based online pharmacy management system featuring secure user authentication, product catalog, shopping cart, order management, admin dashboard, and prescription verification. Built with modern web technologies and deployed on Render.",
-      href: "https://github.com/TanmayWarthe/QuickMeds-An-Online-Pharamacy",
-      demoUrl: "https://dawai-ki-dukan.onrender.com",
-      tags: ["Django", "Python", "Bootstrap", "SQLite", "JavaScript", "HTML/CSS"],
-      image: "/src/assets/projects/quickmeds-thumbnail.svg",
-      category: "Full-Stack Web App",
-      status: "Live Demo"
-    }
+    // {
+    //   title: "QuickMeds - Online Pharmacy",
+    //   description: "A comprehensive Django-based online pharmacy management system featuring secure user authentication, product catalog, shopping cart, order management, admin dashboard, and prescription verification. Built with modern web technologies and deployed on Render.",
+    //   href: "https://github.com/TanmayWarthe/QuickMeds-An-Online-Pharamacy",
+    //   demoUrl: "https://dawai-ki-dukan.onrender.com",
+    //   tags: ["Django", "Python", "Bootstrap", "SQLite", "JavaScript", "HTML/CSS"],
+    //   image: "/src/assets/projects/quickmeds-thumbnail.svg",
+    //   category: "Full-Stack Web App",
+    //   status: "Live Demo"
+    // }
   ];
 
   return (
@@ -31,7 +31,7 @@ export default function Projects() {
         className="text-center mb-8 sm:mb-12"
         variants={item}
         initial="hidden"
-        whileInView="show"
+        whileInV   iew="show"
         viewport={{ once: true, amount: 0.25 }}
       >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
