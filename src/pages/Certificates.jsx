@@ -155,7 +155,7 @@ export default function Certificates() {
 
   return (
     <motion.section
-      className="relative isolate bg-[#F5F5DC] py-20 sm:py-24"
+      className="relative isolate bg-purple-50/30 py-20 sm:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
@@ -195,8 +195,8 @@ export default function Certificates() {
               key={tab.value}
               onClick={() => setFilter(tab.value)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${filter === tab.value
-                  ? 'bg-red-600 text-white shadow-lg'
-                  : 'bg-white/80 text-gray-700 border border-gray-200 hover:border-red-300 hover:bg-red-50'
+                ? 'bg-red-600 text-white shadow-lg'
+                : 'bg-white/80 text-gray-700 border border-gray-200 hover:border-red-300 hover:bg-red-50'
                 }`}
             >
               {tab.label} <span className="ml-1.5 text-xs opacity-75">({tab.count})</span>
@@ -234,8 +234,8 @@ export default function Certificates() {
                       {cert.icon}
                     </div>
                     <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${cert.category === 'completion'
-                        ? 'bg-green-100 text-green-700'
-                        : 'bg-blue-100 text-blue-700'
+                      ? 'bg-green-100 text-green-700'
+                      : 'bg-blue-100 text-blue-700'
                       }`}>
                       {cert.category === 'completion' ? 'Completed' : 'Participated'}
                     </span>

@@ -8,7 +8,7 @@ function Hero() {
   return (
     <motion.section
       id="hero"
-      className="relative min-h-screen bg-[#F5F5DC] flex items-center justify-between px-6 sm:px-8 md:px-12 lg:px-16 xl:px-24 overflow-hidden pt-20"
+      className="relative min-h-screen bg-white flex items-center justify-between px-6 sm:px-8 md:px-12 lg:px-16 xl:px-24 overflow-hidden pt-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
@@ -39,7 +39,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <DecryptText 
+          <DecryptText
             values={[
               'A Full Stack Developer',
               'A Software Engineer',
@@ -77,7 +77,7 @@ function Hero() {
         </motion.div>
       </motion.div>
 
-      
+
 
       {/* Mobile Social Icons and Contact Button (handled by SideElements) */}
     </motion.section>

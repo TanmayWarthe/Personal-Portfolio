@@ -23,7 +23,7 @@ export default function Projects() {
 
   return (
     <motion.section
-      className="relative isolate bg-[#F5F5DC] py-20 sm:py-24"
+      className="relative isolate bg-blue-50/30 py-20 sm:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}

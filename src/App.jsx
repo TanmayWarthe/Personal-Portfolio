@@ -18,7 +18,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 
 function App() {
   return (
-    <div className="bg-[#F5F5DC] text-gray-800 min-h-screen flex flex-col">
+    <div className="bg-white text-gray-800 min-h-screen flex flex-col">
       {/* Navbar */}
       <Navbar />
 

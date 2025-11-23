@@ -29,7 +29,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-[#F5F5DC] border-t border-gray-200/50 py-8">
+    <footer className="relative bg-white border-t border-gray-200/50 py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center space-y-6">
           {/* Social Links */}

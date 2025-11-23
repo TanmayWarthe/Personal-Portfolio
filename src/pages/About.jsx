@@ -8,13 +8,6 @@ export default function About() {
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  const quickFacts = [
-    { label: "Experience", value: "1.5+ yrs", detail: "Freelance & SaaS" },
-    { label: "Projects shipped", value: "18", detail: "Product & client work" },
-    { label: "Happy clients", value: "12", detail: "From 4 countries" },
-    { label: "Focus", value: "Full-stack", detail: "React • Node • Cloud" },
-  ];
-
   const pillars = [
     {
       title: "Craft with clarity",
@@ -27,24 +20,6 @@ export default function About() {
     {
       title: "Grow with community",
       copy: "Learning in public and mentoring juniors keeps me curious, humble, and plugged into real-world problems.",
-    },
-  ];
-
-  const timeline = [
-    {
-      year: "2023",
-      title: "Started as a freelance full-stack dev",
-      detail: "Delivered MVPs for health-tech & ed-tech founders and learned to wear multiple hats.",
-    },
-    {
-      year: "2024",
-      title: "Brought SaaS mindset",
-      detail: "Built reusable design systems, automated deployments, and scaled agile workflows for remote teams.",
-    },
-    {
-      year: "Now",
-      title: "Building calm, resilient products",
-      detail: "Helping mission-driven teams craft thoughtful experiences with performance-first engineering.",
     },
   ];
 
@@ -62,7 +37,7 @@ export default function About() {
   return (
     <motion.section
       id="about"
-      className="relative isolate bg-[#F5F5DC] py-20 sm:py-24"
+      className="relative isolate bg-gray-50 py-20 sm:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
@@ -159,47 +134,6 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* <motion.div variants={heroVariants} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {quickFacts.map((fact) => (
-            <div
-              key={fact.label}
-              className="rounded-2xl border border-gray-200 bg-white/70 p-5 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
-            >
-              <p className="text-sm uppercase tracking-[0.35em] text-gray-400">{fact.label}</p>
-              <p className="mt-3 text-3xl font-semibold text-red-600">{fact.value}</p>
-              <p className="mt-1 text-sm text-gray-600">{fact.detail}</p>
-            </div>
-          ))}
-        </motion.div> */}
-
-        {/* <motion.div
-          variants={heroVariants}
-          className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center"
-        >
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.35em] text-red-500">Timeline</p>
-            <h3 className="text-2xl font-semibold text-gray-800">The arc so far</h3>
-            <p className="text-gray-600">
-              Every project sharpened a different muscle: architecture, product thinking, accessibility, and facilitation.
-              Here’s a quick snapshot.
-            </p>
-          </div>
-          <div className="space-y-6">
-            {timeline.map((item, index) => (
-              <div key={item.year} className="relative pl-6">
-                <div className="absolute left-0 top-3 h-full w-px bg-gradient-to-b from-red-500/70 to-transparent" />
-                <div className="absolute left-0 top-3 w-2 h-2 rounded-full bg-red-500" />
-                <div className="rounded-2xl border border-gray-200 bg-white/80 p-5 shadow-sm">
-                  <p className="text-xs uppercase tracking-[0.35em] text-gray-400">{item.year}</p>
-                  <h4 className="text-lg font-semibold mt-2">{item.title}</h4>
-                  <p className="text-sm text-gray-600 mt-2">{item.detail}</p>
-                </div>
-                {index !== timeline.length - 1 && <div className="ml-1 mt-2 h-6 border-l border-dashed border-red-200" />}
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
         <motion.div variants={heroVariants} className="space-y-4">
           <div className="flex flex-wrap items-center gap-3">
             <p className="text-xs uppercase tracking-[0.35em] text-red-500">Toolbox</p>
@@ -226,7 +160,7 @@ export default function About() {
             inflection points—when you need momentum, calm execution, and someone who can talk user flows and database
             indexes in the same breath.
           </p>
-        </motion.div> */}
+        </motion.div>
       </div>
     </motion.section>
   );

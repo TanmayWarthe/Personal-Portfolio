@@ -6,8 +6,19 @@ import { X, Download, Home, User, Briefcase, FolderKanban, Award, Mail } from "l
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
+
+  // Detect scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -56,27 +67,34 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Floating Right Side Buttons - No Navbar Bar */}
+      {/* Floating Right Side Buttons */}
       <div className="fixed top-4 right-4 md:top-6 md:right-6 z-[102] flex items-center gap-3">
-        {/* Get my Resume Button */}
-        <motion.a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-2 border-2 border-red-600 text-red-700 rounded-lg font-medium text-sm hover:bg-red-50 transition-all duration-300 flex items-center gap-2 whitespace-nowrap bg-[#F5F5DC] shadow-md"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Download className="w-4 h-4 flex-shrink-0" />
-          <span className="hidden sm:inline">Get my Resume</span>
-          <span className="sm:hidden">Resume</span>
-        </motion.a>
+        {/* Get my Resume Button - Only show when NOT scrolled */}
+        <AnimatePresence>
+          {!isScrolled && (
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 border-2 border-red-600 text-red-700 rounded-lg font-medium text-sm hover:bg-red-50 transition-all duration-300 flex items-center gap-2 whitespace-nowrap bg-white shadow-md"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20, transition: { duration: 0.3 } }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Download className="w-4 h-4 flex-shrink-0" />
+              <span className="hidden sm:inline">Get my Resume</span>
+              <span className="sm:hidden">Resume</span>
+            </motion.a>
+          )}
+        </AnimatePresence>
 
         {/* Hamburger Menu Button */}
         <motion.button
           ref={hamburgerRef}
           onClick={() => setIsOpen(!isOpen)}
-          className="menu-button relative p-2 rounded-lg hover:bg-gray-100 transition-colors bg-[#F5F5DC] shadow-md"
+          className="menu-button relative p-2 rounded-lg hover:bg-gray-100 transition-colors bg-white shadow-md"
           whileTap={{ scale: 0.9 }}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
@@ -125,7 +143,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop - No blur */}
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -134,7 +152,7 @@ export default function Navbar() {
               className="fixed inset-0 bg-black/10 z-[98]"
             />
 
-            {/* Vertical Menu Container - Below hamburger button, no background */}
+            {/* Vertical Menu Container */}
             <motion.div
               ref={menuRef}
               className="fixed top-16 right-4 md:top-20 md:right-6 z-[100] pointer-events-auto"
@@ -143,6 +161,71 @@ export default function Navbar() {
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
+              {/* Resume Button in Menu - Only show when scrolled */}
+              <AnimatePresence>
+                {isScrolled && (
+                  <motion.div
+                    className="relative group mb-3 flex items-center justify-end"
+                    initial={{ opacity: 0, x: 30, scale: 0.8 }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                      scale: 1,
+                      transition: {
+                        duration: 0.4,
+                        ease: [0.34, 1.56, 0.64, 1],
+                      }
+                    }}
+                    exit={{
+                      opacity: 0,
+                      x: 20,
+                      scale: 0.9,
+                      transition: {
+                        duration: 0.2,
+                        ease: "easeIn"
+                      }
+                    }}
+                  >
+                    {/* Label - shown on hover */}
+                    <div
+                      className="absolute right-full mr-3 top-1/2 -translate-y-1/2 pointer-events-none z-50 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150 ease-out"
+                    >
+                      <div className="bg-white text-red-600 text-xs font-semibold px-2.5 py-1 rounded-lg shadow-lg whitespace-nowrap border border-red-200">
+                        Get Resume
+                      </div>
+                      <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-white"></div>
+                    </div>
+
+                    <a
+                      href="/resume.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <motion.div
+                        className="w-11 h-11 rounded-full bg-red-600 border-2 border-red-600 flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-150"
+                        initial={{ scale: 0 }}
+                        animate={{
+                          scale: 1,
+                          transition: {
+                            delay: 0.1,
+                            duration: 0.3,
+                            ease: [0.34, 1.56, 0.64, 1]
+                          }
+                        }}
+                        whileHover={{
+                          scale: 1.1,
+                          transition: { duration: 0.2 }
+                        }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Download size={18} />
+                      </motion.div>
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               {navItems.map((item, i) => {
                 const IconComponent = item.icon;
                 return (
@@ -179,7 +262,7 @@ export default function Navbar() {
                       onClick={() => handleItemClick(item)}
                       className="cursor-pointer block"
                     >
-                      {/* Smaller Circular Icon Button */}
+                      {/* Circular Icon Button */}
                       <motion.div
                         className="w-11 h-11 rounded-full bg-white border-2 border-red-600 flex items-center justify-center text-red-600 shadow-md hover:shadow-lg transition-all duration-150"
                         whileHover={{

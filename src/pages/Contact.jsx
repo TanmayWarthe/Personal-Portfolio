@@ -254,7 +254,7 @@ export default function Contact() {
 
   return (
     <motion.section
-      className="relative isolate bg-[#F5F5DC] py-20 sm:py-24"
+      className="relative isolate bg-green-50/30 py-20 sm:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
@@ -356,8 +356,8 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className={`w-full px-4 py-3 rounded-lg border bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-red-500/20 focus:outline-none transition-colors ${fieldErrors.name
-                        ? 'border-red-500 focus:border-red-500'
-                        : 'border-gray-300 focus:border-red-500'
+                      ? 'border-red-500 focus:border-red-500'
+                      : 'border-gray-300 focus:border-red-500'
                       }`}
                     placeholder="Your name"
                   />
@@ -378,8 +378,8 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className={`w-full px-4 py-3 rounded-lg border bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-red-500/20 focus:outline-none transition-colors ${fieldErrors.email
-                        ? 'border-red-500 focus:border-red-500'
-                        : 'border-gray-300 focus:border-red-500'
+                      ? 'border-red-500 focus:border-red-500'
+                      : 'border-gray-300 focus:border-red-500'
                       }`}
                     placeholder="your.email@example.com"
                   />
@@ -400,8 +400,8 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className={`w-full px-4 py-3 rounded-lg border bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-red-500/20 focus:outline-none transition-colors ${fieldErrors.subject
-                        ? 'border-red-500 focus:border-red-500'
-                        : 'border-gray-300 focus:border-red-500'
+                      ? 'border-red-500 focus:border-red-500'
+                      : 'border-gray-300 focus:border-red-500'
                       }`}
                     placeholder="What's this about?"
                   />
@@ -416,10 +416,10 @@ export default function Contact() {
                       Message *
                     </label>
                     <span className={`text-xs ${formData.message.length > 2000
-                        ? 'text-red-600'
-                        : formData.message.length > 1800
-                          ? 'text-yellow-600'
-                          : 'text-gray-500'
+                      ? 'text-red-600'
+                      : formData.message.length > 1800
+                        ? 'text-yellow-600'
+                        : 'text-gray-500'
                       }`}>
                       {formData.message.length}/2000
                     </span>
@@ -433,8 +433,8 @@ export default function Contact() {
                     rows={5}
                     maxLength={2000}
                     className={`w-full px-4 py-3 rounded-lg border bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-red-500/20 focus:outline-none transition-colors resize-none ${fieldErrors.message
-                        ? 'border-red-500 focus:border-red-500'
-                        : 'border-gray-300 focus:border-red-500'
+                      ? 'border-red-500 focus:border-red-500'
+                      : 'border-gray-300 focus:border-red-500'
                       }`}
                     placeholder="Tell me more about your project or inquiry..."
                   />
