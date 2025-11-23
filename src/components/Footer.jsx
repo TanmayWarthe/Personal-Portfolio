@@ -1,73 +1,70 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  
+
+  const socialLinks = [
+    {
+      name: "GitHub",
+      url: "https://github.com/TanmayWarthe",
+      icon: Github
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/tanmay-warthe/",
+      icon: Linkedin
+    },
+    {
+      name: "Twitter",
+      url: "https://x.com/_tanmay_warthe",
+      icon: Twitter
+    },
+    {
+      name: "Email",
+      url: "mailto:tanmaywarthe02@gmail.com",
+      icon: Mail
+    }
+  ];
 
   return (
-    <footer className="relative mt-auto border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 py-8">
-      {/* Top Border */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-      
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        {/* Main Footer Content */}
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-6">
-          {/* Personal Info */}
-          <div className="space-y-3">
-            <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
-              Tanmay Warthe
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
-              Computer Technology student and aspiring developer from Nagpur, Maharashtra, India.
-            </p>
+    <footer className="relative bg-[#F5F5DC] border-t border-gray-200/50 py-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col items-center space-y-6">
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:text-red-600 hover:border-red-300 transition-all duration-300 shadow-sm hover:shadow-md"
+                  whileHover={{ y: -3, scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label={social.name}
+                >
+                  <Icon size={18} />
+                </motion.a>
+              );
+            })}
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-3">
-            <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
-              Contact
-            </h4>
-            <div className="space-y-2 text-xs sm:text-sm">
-              <div className="flex items-center space-x-2">
-                <span className="text-blue-500">📧</span>
-                <a 
-                  href="mailto:tanmaywarthe02@gmail.com"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xs sm:text-sm"
-                >
-                  tanmaywarthe02@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-blue-500">📱</span>
-                <a 
-                  href="tel:+918468853407"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xs sm:text-sm"
-                >
-                  +91 8468853407
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-       
-
-        {/* Bottom Section */}
-        <div className="border-t border-gray-200 dark:border-gray-700 pt-4 sm:pt-6 text-center">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
-            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-              © {currentYear} Tanmay Warthe. All rights reserved.
+          {/* Copyright */}
+          <div className="text-center space-y-2">
+            <p className="text-sm text-gray-600 flex items-center justify-center gap-1.5">
+              Made with <Heart size={14} className="text-red-500 fill-red-500" /> by{" "}
+              <span className="font-semibold text-gray-800">Tanmay Warthe</span>
             </p>
-            <div className="flex items-center space-x-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
-              <span>Made by Tanmay Warthe</span>
-              <span>•</span>
-              <span>React & Tailwind</span>
-            </div>
+            <p className="text-xs text-gray-500">
+              © {currentYear} All rights reserved.
+            </p>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-
-
