@@ -159,7 +159,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        <motion.div variants={heroVariants} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* <motion.div variants={heroVariants} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {quickFacts.map((fact) => (
             <div
               key={fact.label}
@@ -170,9 +170,9 @@ export default function About() {
               <p className="mt-1 text-sm text-gray-600">{fact.detail}</p>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
-        <motion.div
+        {/* <motion.div
           variants={heroVariants}
           className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center"
         >
@@ -226,7 +226,7 @@ export default function About() {
             inflection points—when you need momentum, calm execution, and someone who can talk user flows and database
             indexes in the same breath.
           </p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.section>
   );
