@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import DecryptText from "../components/DecryptText";
+import GooeyCursor from "../components/GooeyCursor";
 
 function Hero() {
 
@@ -13,6 +14,7 @@ function Hero() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
+      <GooeyCursor />
       {/* Social Media Icons - Left Edge (removed, will use SideElements component) */}
 
       {/* Main Content - Left Side */}
