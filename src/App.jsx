@@ -63,70 +63,70 @@ function App() {
         email="tanmaywarthe02@gmail.com"
         socialLinks={[
           { icon: Github, href: 'https://github.com/TanmayWarthe', label: 'GitHub' },
-          { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-          { icon: Twitter, href: 'https://x.com/_tanmay_warthe', label: 'Twitter' },
           { icon: Linkedin, href: 'https://www.linkedin.com/in/tanmay-warthe/', label: 'LinkedIn' },
+          { icon: Twitter, href: 'https://x.com/_tanmay_warthe', label: 'Twitter' },
+          { icon: Instagram, href: 'https://instagram.com/_tanmaaay', label: 'Instagram' },
         ]}
         onIconClick={(label) => console.log(`Clicked ${label}`)}
         onEmailClick={() => window.location.href = 'mailto:tanmaywarthe02@gmail.com'}
       />
 
-      {/* Main Content */}
+      {/* Main Content - Single Continuous Flow */}
       <main className="flex-1 relative">
         {/* Hero Section */}
-        <section id="hero">
+        <div id="hero">
           <Hero />
-        </section>
+        </div>
 
         {/* About Me Section */}
-        <section id="about" className="py-2 sm:py-3">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <div id="about">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-gray-100" /></div>}>
             <About />
           </Suspense>
-        </section>
+        </div>
 
         {/* Education Section */}
-        <section id="education" className="py-2 sm:py-3">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <div id="education">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-gray-100" /></div>}>
             <Education />
           </Suspense>
-        </section>
+        </div>
 
 
         {/* Experience Section */}
-        <section id="experience" className="py-2 sm:py-3">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <div id="experience">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-gray-100" /></div>}>
             <Experience />
           </Suspense>
-        </section>
+        </div>
 
         {/* Skills Section */}
-        <section id="skills" className="py-2 sm:py-3">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <div id="skills">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-gray-100" /></div>}>
             <Skills />
           </Suspense>
-        </section>
+        </div>
 
         {/* Projects Section */}
-        <section id="projects" className="py-2 sm:py-3">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <div id="projects">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-gray-100" /></div>}>
             <Projects />
           </Suspense>
-        </section>
+        </div>
 
         {/* Certificates Section
-        <section id="certificates" className="py-2 sm:py-3">
-          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <div id="certificates">
+          <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-gray-100" /></div>}>
             <Certificates />
           </Suspense>
-        </section> */}
+        </div> */}
 
         {/* Contact Section */}
-        <section id="contact" className="py-2 sm:py-3">
-          <Suspense fallback={<div className="max-w-3xl mx-auto px-4 sm:px-6"><div className="h-32 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
+        <div id="contact">
+          <Suspense fallback={<div className="max-w-3xl mx-auto px-4 sm:px-6"><div className="h-32 animate-pulse rounded-2xl bg-gray-100" /></div>}>
             <Contact />
           </Suspense>
-        </section>
+        </div>
       </main>
 
       {/* Footer */}

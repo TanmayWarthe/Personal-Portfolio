@@ -254,7 +254,7 @@ export default function Contact() {
 
   return (
     <motion.section
-      className="relative isolate bg-green-50/30 py-20 sm:py-24"
+      className="relative isolate bg-gradient-to-b from-white via-gray-50 to-white py-16 sm:py-20"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
@@ -264,9 +264,8 @@ export default function Contact() {
       }}
     >
       {/* Subtle Background Blobs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 right-10 h-72 w-72 rounded-full bg-red-300/30 blur-[150px]" />
-        <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-red-500/20 blur-[100px]" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-red-50/30 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 space-y-12 text-gray-800">

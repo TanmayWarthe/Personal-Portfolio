@@ -52,11 +52,11 @@ export default function Education() {
   ], []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 relative overflow-hidden">
-      {/* Static Background Elements */}
+    <div className="relative isolate bg-gradient-to-b from-white via-gray-50 to-white py-16 sm:py-20 overflow-hidden">
+      {/* Subtle Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-red-50/40 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-blue-50/30 rounded-full blur-3xl translate-x-1/3" />
+        <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-emerald-50/30 rounded-full blur-3xl -translate-x-1/3" />
       </div>
 
       {/* Header */}
@@ -65,8 +65,8 @@ export default function Education() {
           <GraduationCap className="w-7 h-7 text-white" />
         </div>
 
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-600 to-gray-900">
-          Educational Journey
+        <h2 className="text-3xl sm:text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-600 to-gray-900">
+          Education Journey
         </h2>
 
         <div className="mx-auto w-20 h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent rounded-full mb-4" />

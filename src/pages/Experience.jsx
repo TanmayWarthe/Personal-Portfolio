@@ -44,29 +44,29 @@ export default function Experience() {
   ], []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 relative overflow-hidden">
-      {/* Static Background Elements */}
+    <div className="relative isolate bg-gradient-to-b from-white via-gray-50 to-white py-16 sm:py-20 overflow-hidden">
+      {/* Subtle Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-50/40 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-blue-50/30 rounded-full blur-3xl -translate-x-1/3" />
       </div>
 
-      {/* Header */}
-      <div className="text-center mb-12 relative z-10">
-        <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-blue-500/20 mb-4">
-          <Briefcase className="w-7 h-7 text-white" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
+        {/* Header */}
+        <div className="text-center mb-12 relative z-10">
+          <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-blue-500/20 mb-4">
+            <Briefcase className="w-7 h-7 text-white" />
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-blue-600 to-gray-900">
+            Professional Experience
+          </h2>
+
+          <div className="mx-auto w-20 h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent rounded-full mb-4" />
+
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+            My professional journey and practical experience in the tech industry
+          </p>
         </div>
-
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-blue-600 to-gray-900">
-          Professional Experience
-        </h2>
-
-        <div className="mx-auto w-20 h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent rounded-full mb-4" />
-
-        <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-          My professional journey and practical experience in the tech industry
-        </p>
-      </div>
 
       {/* Timeline */}
       <motion.div
@@ -185,6 +185,7 @@ export default function Experience() {
           })}
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }

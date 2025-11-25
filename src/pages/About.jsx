@@ -26,7 +26,7 @@ export default function About() {
   return (
     <motion.section
       id="about"
-      className="relative isolate bg-gray-50 py-20 sm:py-28 overflow-hidden"
+      className="relative isolate bg-gradient-to-b from-white via-gray-50 to-white py-16 sm:py-20 overflow-hidden"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
