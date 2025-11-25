@@ -134,7 +134,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        <motion.div variants={heroVariants} className="space-y-4">
+        {/* <motion.div variants={heroVariants} className="space-y-4">
           <div className="flex flex-wrap items-center gap-3">
             <p className="text-xs uppercase tracking-[0.35em] text-red-500">Toolbox</p>
             <span className="text-xs text-gray-500">Favorite stack for fast, scalable shipping</span>
@@ -149,9 +149,9 @@ export default function About() {
               </span>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
 
-        <motion.div
+        {/* <motion.div
           variants={heroVariants}
           className="rounded-3xl border border-red-200 bg-gradient-to-br from-red-50 via-white to-red-100/60 p-6 sm:p-10 text-center"
         >
@@ -160,7 +160,7 @@ export default function About() {
             inflection points—when you need momentum, calm execution, and someone who can talk user flows and database
             indexes in the same breath.
           </p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.section>
   );
