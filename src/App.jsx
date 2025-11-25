@@ -1,5 +1,6 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useRef } from "react";
 import { Github, Instagram, Twitter, Linkedin } from "lucide-react";
+import Lenis from "lenis";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -17,6 +18,41 @@ const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
 
 function App() {
+  const lenisRef = useRef(null);
+
+  // Initialize Lenis smooth scroll with optimized settings
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.0,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 0.8,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+      autoResize: true,
+      syncTouch: true,
+    });
+
+    lenisRef.current = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Expose lenis to window for react-scroll integration
+    window.lenis = lenis;
+
+    return () => {
+      lenis.destroy();
+      window.lenis = null;
+    };
+  }, []);
   return (
     <div className="bg-white text-gray-800 min-h-screen flex flex-col">
       {/* Navbar */}
@@ -78,12 +114,12 @@ function App() {
           </Suspense>
         </section>
 
-        {/* Certificates Section */}
+        {/* Certificates Section
         <section id="certificates" className="py-2 sm:py-3">
           <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="h-40 animate-pulse rounded-2xl bg-[#0B1220] border border-[#111827]" /></div>}>
             <Certificates />
           </Suspense>
-        </section>
+        </section> */}
 
         {/* Contact Section */}
         <section id="contact" className="py-2 sm:py-3">

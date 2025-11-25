@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
-import { X, Download, Home, User, Briefcase, FolderKanban, Award, Mail } from "lucide-react";
+import { X, Download, Home, User, GraduationCap, Briefcase, Code, FolderGit, Award, Mail } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,11 +53,11 @@ export default function Navbar() {
   const navItems = useMemo(() => [
     { id: "hero", label: "HOME", icon: Home },
     { id: "about", label: "ABOUT", icon: User },
-    { id: "education", label: "EDUCATION", icon: Award },
+    { id: "education", label: "EDUCATION", icon: GraduationCap },
     { id: "experience", label: "EXPERIENCE", icon: Briefcase },
-    { id: "skills", label: "SKILLS", icon: FolderKanban },
-    { id: "projects", label: "PROJECTS", icon: FolderKanban },
-    { id: "certificates", label: "CERTIFICATES", icon: Award },
+    { id: "skills", label: "SKILLS", icon: Code },
+    { id: "projects", label: "PROJECTS", icon: FolderGit },
+    // { id: "certificates", label: "CERTIFICATES", icon: Award },
     { id: "contact", label: "CONTACT", icon: Mail },
   ], []);
 
@@ -99,43 +99,32 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
-          <motion.div
-            className="relative"
-            animate={{
-              rotate: isOpen ? 3600 : 0,
-            }}
-            transition={{
-              duration: 2,
-              ease: "easeInOut"
-            }}
-          >
-            <AnimatePresence mode="wait">
-              {isOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X size={24} className="text-red-700" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex flex-col gap-1.5"
-                >
-                  <div className="h-0.5 bg-red-700 rounded-full w-5" />
-                  <div className="h-0.5 bg-red-700 rounded-full w-4" />
-                  <div className="h-0.5 bg-red-700 rounded-full w-5" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+          <AnimatePresence mode="wait">
+            {isOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X size={24} className="text-red-700" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col gap-1.5"
+              >
+                <div className="h-0.5 bg-red-700 rounded-full w-5" />
+                <div className="h-0.5 bg-red-700 rounded-full w-4" />
+                <div className="h-0.5 bg-red-700 rounded-full w-5" />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.button>
       </div>
 
@@ -256,8 +245,8 @@ export default function Navbar() {
                     <Link
                       to={item.id}
                       smooth={true}
-                      duration={800}
-                      offset={-20}
+                      duration={600}
+                      offset={-80}
                       spy={true}
                       onClick={() => handleItemClick(item)}
                       className="cursor-pointer block"
