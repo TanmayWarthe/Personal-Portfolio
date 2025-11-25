@@ -18,23 +18,6 @@ function ProjectCard({ title = "Project", description = "", href = "#", tags = [
             </div>
           )}
 
-          {/* Badges */}
-          <div className="absolute top-3 left-3 flex gap-2">
-            {category && (
-              <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase bg-red-600 text-white rounded-full">
-                {category}
-              </span>
-            )}
-          </div>
-
-          {status && (
-            <div className="absolute top-3 right-3">
-              <span className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold bg-green-600 text-white rounded-full">
-                <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-                {status}
-              </span>
-            </div>
-          )}
         </div>
 
         {/* Content */}

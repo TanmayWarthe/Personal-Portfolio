@@ -23,6 +23,7 @@
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-parallax-tilt": "^1.7.314",
     "react-scroll": "^1.9.3",
     "three": "^0.179.1"
   },

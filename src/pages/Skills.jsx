@@ -1,118 +1,191 @@
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
+import { Layout, Server, Wrench } from "lucide-react";
 
 export default function Skills() {
-    // Memoized animation variants for better performance
-    const containerVariants = useMemo(() => ({
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: { staggerChildren: 0.02, delayChildren: 0.03 },
+    // Memoized skill categories
+    const SKILLS_CATEGORIES = useMemo(
+        () => [
+            {
+                title: "Frontend Ecosystem",
+                description:
+                    "Building responsive, interactive, and accessible user interfaces.",
+                icon: Layout,
+                color: "from-blue-500 to-cyan-500",
+                skills: [
+                    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+                    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+                    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+                    { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+                    { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+                    { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+                ],
+            },
+            {
+                title: "Backend Infrastructure",
+                description:
+                    "Designing robust APIs, database architectures, and server logic.",
+                icon: Server,
+                color: "from-emerald-500 to-teal-500",
+                skills: [
+                    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+                    { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+                    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+                    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+                    { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+                ],
+            },
+            {
+                title: "DevOps & Tools",
+                description:
+                    "Streamlining development workflows and deployment pipelines.",
+                icon: Wrench,
+                color: "from-orange-500 to-red-500",
+                skills: [
+                    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+                    { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+                    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+                    { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+                    { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+                    { name: "Vite", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" },
+                    { name: "npm", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
+                    { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+                ],
+            },
+        ],
+        []
+    );
+
+    // Directional spring animation variants
+    const getCardVariants = useMemo(
+        () => (index) => {
+            const xOffset = 50;
+            const yOffset = 50;
+            let initial = {};
+            if (index === 0) initial = { opacity: 0, x: -xOffset }; // left card
+            else if (index === 1) initial = { opacity: 0, y: yOffset }; // center card
+            else initial = { opacity: 0, x: xOffset }; // right card
+
+            return {
+                hidden: initial,
+                show: {
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                    transition: {
+                        type: "spring",
+                        stiffness: 40,
+                        damping: 15,
+                        mass: 1,
+                        delay: index * 0.2,
+                    },
+                },
+            };
         },
-    }), []);
-
-    const itemVariants = useMemo(() => ({
-        hidden: { opacity: 0, scale: 0.95 },
-        show: { opacity: 1, scale: 1, transition: { duration: 0.25, ease: "easeOut" } },
-    }), []);
-
-    // Memoized skills data
-    const SKILLS_DATA = useMemo(() => [
-        // Frontend
-        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", color: "#61DAFB" },
-        { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", color: "#F7DF1E" },
-        { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", color: "#E34F26" },
-        { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", color: "#1572B6" },
-        { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", color: "#06B6D4" },
-        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", color: "#3178C6" },
-
-        // Backend
-        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", color: "#339933" },
-        { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg", color: "#000000" },
-        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", color: "#3776AB" },
-        { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", color: "#47A248" },
-        { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", color: "#4479A1" },
-
-        // Tools & Technologies
-        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", color: "#F05032" },
-        { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", color: "#181717" },
-        { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg", color: "#007ACC" },
-        { name: "Vite", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg", color: "#646CFF" },
-        { name: "npm", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg", color: "#CB3837" },
-        { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", color: "#FCC624" },
-        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", color: "#2496ED" },
-        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", color: "#F24E1E" },
-    ], []);
+        []
+    );
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-            {/* Header - Simplified */}
-            <div className="text-center mb-8">
-                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mx-auto shadow-md shadow-red-500/20 mb-3">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                </div>
-
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-600 to-gray-900">
-                    Skills & Technologies
-                </h2>
-
-                <div className="mx-auto w-16 h-0.5 bg-gradient-to-r from-transparent via-red-600 to-transparent rounded-full mb-3" />
-
-                <p className="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto">
-                    Technologies and tools I work with
-                </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative overflow-hidden">
+            {/* Background blobs */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+                <div
+                    className="absolute top-20 left-20 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl mix-blend-multiply animate-blob"
+                    style={{ willChange: "transform" }}
+                />
+                <div
+                    className="absolute top-20 right-20 w-72 h-72 bg-purple-100/30 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-2000"
+                    style={{ willChange: "transform" }}
+                />
+                <div
+                    className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-100/30 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-4000"
+                    style={{ willChange: "transform" }}
+                />
             </div>
 
-            {/* Skills Grid - Optimized */}
-            <motion.div
-                className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-3 sm:gap-4 max-w-5xl mx-auto place-items-center"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.15, margin: "50px" }}
-            >
-                {SKILLS_DATA.map((skill, skillIndex) => (
-                    <motion.div
-                        key={`skill-${skillIndex}`}
-                        variants={itemVariants}
-                        className="group relative"
-                    >
-                        {/* Skill Icon - Optimized */}
-                        <div
-                            className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 flex items-center justify-center border border-gray-100 hover:border-red-200 cursor-pointer"
-                            style={{
-                                willChange: "transform",
-                                transform: "translateZ(0)"
-                            }}
+            {/* Header */}
+            <div className="text-center mb-16 relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+                        Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
+                            Expertise
+                        </span>
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        A curated stack of modern technologies I use to build scalable applications.
+                    </p>
+                </motion.div>
+            </div>
+
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+                {SKILLS_CATEGORIES.map((category, idx) => {
+                    const Icon = category.icon;
+                    return (
+                        <motion.div
+                            key={idx}
+                            variants={getCardVariants(idx)}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, amount: 0.2 }}
+                            style={{ willChange: "transform, opacity" }}
+                            className="h-full"
                         >
-                            <img
-                                src={skill.icon}
-                                alt={skill.name}
-                                className="w-7 h-7 sm:w-9 sm:h-9 object-contain group-hover:scale-110 transition-transform duration-200"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </div>
+                            <Tilt
+                                tiltMaxAngleX={5}
+                                tiltMaxAngleY={5}
+                                perspective={1000}
+                                scale={1.02}
+                                transitionSpeed={1000}
+                                className="h-full"
+                            >
+                                <div className="group relative bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 flex flex-col h-full overflow-hidden">
+                                    {/* Glass overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                        {/* Tooltip - Optimized */}
-                        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none z-10 whitespace-nowrap">
-                            <div className="bg-gray-900 text-white px-2 py-0.5 rounded text-[10px] sm:text-xs font-medium shadow-md">
-                                {skill.name}
-                                <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gray-900 rotate-45"></div>
-                            </div>
-                        </div>
+                                    {/* Card Header */}
+                                    <div className="mb-8 relative z-10">
+                                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                                            <Icon className="w-7 h-7 text-white" />
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                            {category.title}
+                                        </h3>
+                                        <p className="text-gray-500 leading-relaxed">{category.description}</p>
+                                    </div>
 
-                        {/* Subtle Glow - Optimized */}
-                        <div
-                            className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-200 blur-md pointer-events-none"
-                            style={{ backgroundColor: skill.color }}
-                        />
-                    </motion.div>
-                ))}
-            </motion.div>
-
+                                    {/* Skills List */}
+                                    <div className="flex flex-wrap gap-3 mt-auto relative z-10">
+                                        {category.skills.map((skill, skillIdx) => (
+                                            <div
+                                                key={skillIdx}
+                                                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50/80 hover:bg-white border border-gray-100 hover:border-blue-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-default group/skill"
+                                            >
+                                                <img
+                                                    src={skill.icon}
+                                                    alt={skill.name}
+                                                    className="w-5 h-5 object-contain group-hover/skill:scale-110 transition-transform"
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                />
+                                                <span className="text-sm font-medium text-gray-700 group-hover/skill:text-gray-900">
+                                                    {skill.name}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </Tilt>
+                        </motion.div>
+                    );
+                })}
+            </div>
         </div>
     );
 }
