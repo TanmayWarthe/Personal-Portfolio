@@ -62,12 +62,12 @@ export default function GooeyCursor() {
 
             <div
                 className="w-full h-full opacity-80"
-                style={{ filter: "url(#goo)" }}
+                style={{ filter: "url(#goo)", willChange: "transform" }}
             >
                 {/* Main large blob */}
                 <motion.div
                     className="absolute w-64 h-64 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
-                    style={{ x: x3, y: y3 }}
+                    style={{ x: x3, y: y3, willChange: "transform" }}
                     animate={{
                         rotate: [0, 360],
                         borderRadius: [
@@ -85,7 +85,7 @@ export default function GooeyCursor() {
                 {/* Medium blob */}
                 <motion.div
                     className="absolute w-48 h-48 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
-                    style={{ x: x2, y: y2 }}
+                    style={{ x: x2, y: y2, willChange: "transform" }}
                     animate={{
                         rotate: [360, 0],
                         borderRadius: [
@@ -103,7 +103,7 @@ export default function GooeyCursor() {
                 {/* Small leading blob */}
                 <motion.div
                     className="absolute w-32 h-32 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
-                    style={{ x: x1, y: y1 }}
+                    style={{ x: x1, y: y1, willChange: "transform" }}
                     animate={{
                         rotate: [0, 360],
                         borderRadius: [

@@ -1,15 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
-/* Smooth scrolling for the entire application */
-html {
-  scroll-behavior: smooth;
+/* Lenis smooth scroll optimization */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 /* Prevent horizontal scrollbars across the app */
 html,
 body {
   overflow-x: hidden;
+  width: 100%;
+}
+
+/* Optimize rendering performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU acceleration for transforms */
+.will-change-transform {
+  will-change: transform;
 }
 
 /* Simple float and slow spin animations */
