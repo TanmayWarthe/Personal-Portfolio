@@ -9,12 +9,20 @@ function Hero() {
   return (
     <motion.section
       id="hero"
-      className="relative min-h-screen bg-white flex items-center justify-between px-6 sm:px-8 md:px-12 lg:px-16 xl:px-24 overflow-hidden pt-20"
+      className="relative min-h-screen bg-gradient-to-b from-white via-white to-gray-50/30 flex items-center justify-between px-6 sm:px-8 md:px-12 lg:px-16 xl:px-24 overflow-hidden pt-20 pb-32"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
       <GooeyCursor />
+
+      {/* Decorative Elements */}
+      <div className="absolute top-20 right-10 w-72 h-72 bg-red-100/30 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDuration: '4s' }} />
+      <div className="absolute bottom-32 left-10 w-96 h-96 bg-yellow-100/20 rounded-full blur-3xl -z-10 animate-float" />
+
+      {/* Smooth transition wave to About section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-gray-50/50 -z-5" />
+
       {/* Social Media Icons - Left Edge (removed, will use SideElements component) */}
 
       {/* Main Content - Left Side */}
@@ -78,7 +86,6 @@ function Hero() {
           </Link>
         </motion.div>
       </motion.div>
-
 
 
       {/* Mobile Social Icons and Contact Button (handled by SideElements) */}
