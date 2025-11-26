@@ -61,7 +61,7 @@ export default function Navbar() {
     { id: "contact", label: "CONTACT", icon: Mail },
   ], []);
 
-  const handleItemClick = useCallback((item) => {
+  const handleItemClick = useCallback(() => {
     setIsOpen(false);
   }, []);
 

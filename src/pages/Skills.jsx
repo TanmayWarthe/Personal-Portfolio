@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import Tilt from "react-parallax-tilt";
 import { Layout, Server, Wrench } from "lucide-react";
 
 export default function Skills() {
@@ -78,7 +77,7 @@ export default function Skills() {
                         stiffness: 40,
                         damping: 15,
                         mass: 1,
-                        delay: index * 0.2,
+                        delay: index * 0.1, // Reduced delay for snappier feel
                     },
                 },
             };
@@ -88,7 +87,7 @@ export default function Skills() {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative overflow-hidden">
-            {/* Background blobs */}
+            {/* Background blobs - Optimized with CSS only animation */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
                 <div
                     className="absolute top-20 left-20 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl mix-blend-multiply animate-blob"
@@ -109,7 +108,7 @@ export default function Skills() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
@@ -133,55 +132,45 @@ export default function Skills() {
                             variants={getCardVariants(idx)}
                             initial="hidden"
                             whileInView="show"
-                            viewport={{ once: true, amount: 0.2 }}
-                            style={{ willChange: "transform, opacity" }}
+                            viewport={{ once: true, amount: 0.1 }}
                             className="h-full"
                         >
-                            <Tilt
-                                tiltMaxAngleX={5}
-                                tiltMaxAngleY={5}
-                                perspective={1000}
-                                scale={1.02}
-                                transitionSpeed={1000}
-                                className="h-full"
-                            >
-                                <div className="group relative bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 flex flex-col h-full overflow-hidden">
-                                    {/* Glass overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            <div className="group relative bg-white/80 backdrop-blur-md rounded-[2rem] p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 flex flex-col h-full overflow-hidden hover:-translate-y-2">
+                                {/* Glass overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                                    {/* Card Header */}
-                                    <div className="mb-8 relative z-10">
-                                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
-                                            <Icon className="w-7 h-7 text-white" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                                            {category.title}
-                                        </h3>
-                                        <p className="text-gray-500 leading-relaxed">{category.description}</p>
+                                {/* Card Header */}
+                                <div className="mb-8 relative z-10">
+                                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                                        <Icon className="w-7 h-7 text-white" />
                                     </div>
-
-                                    {/* Skills List */}
-                                    <div className="flex flex-wrap gap-3 mt-auto relative z-10">
-                                        {category.skills.map((skill, skillIdx) => (
-                                            <div
-                                                key={skillIdx}
-                                                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50/80 hover:bg-white border border-gray-100 hover:border-blue-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-default group/skill"
-                                            >
-                                                <img
-                                                    src={skill.icon}
-                                                    alt={skill.name}
-                                                    className="w-5 h-5 object-contain group-hover/skill:scale-110 transition-transform"
-                                                    loading="lazy"
-                                                    decoding="async"
-                                                />
-                                                <span className="text-sm font-medium text-gray-700 group-hover/skill:text-gray-900">
-                                                    {skill.name}
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </div>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                        {category.title}
+                                    </h3>
+                                    <p className="text-gray-500 leading-relaxed">{category.description}</p>
                                 </div>
-                            </Tilt>
+
+                                {/* Skills List */}
+                                <div className="flex flex-wrap gap-3 mt-auto relative z-10">
+                                    {category.skills.map((skill, skillIdx) => (
+                                        <div
+                                            key={skillIdx}
+                                            className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50/80 hover:bg-white border border-gray-100 hover:border-blue-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-default group/skill"
+                                        >
+                                            <img
+                                                src={skill.icon}
+                                                alt={skill.name}
+                                                className="w-5 h-5 object-contain group-hover/skill:scale-110 transition-transform"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                            <span className="text-sm font-medium text-gray-700 group-hover/skill:text-gray-900">
+                                                {skill.name}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </motion.div>
                     );
                 })}

@@ -23,7 +23,17 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // allow React/Component-style globals (uppercase) and the `motion` import
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]|^motion$' }],
     },
+  },
+  // override for Node scripts (deploy.js) so `require` and `process` are allowed
+  {
+    files: ['deploy.js'],
+    languageOptions: {
+      globals: globals.node,
+      parserOptions: { sourceType: 'script' },
+    },
+    rules: {},
   },
 ])

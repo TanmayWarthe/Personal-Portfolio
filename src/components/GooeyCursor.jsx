@@ -20,39 +20,29 @@ export default function GooeyCursor() {
     const y3 = useSpring(mouseY, springConfigLast);
 
     useEffect(() => {
-        let currentClientX = 0;
-        let currentClientY = 0;
-
-        const updatePosition = () => {
-            mouseX.set(currentClientX);
-            mouseY.set(currentClientY + window.scrollY);
-        };
-
         const handleMouseMove = (e) => {
-            currentClientX = e.clientX;
-            currentClientY = e.clientY;
-            updatePosition();
-        };
-
-        const handleScroll = () => {
-            updatePosition();
+            // Update position relative to the viewport/container
+            // Since the container is absolute/relative in Hero, we might need to adjust logic if we want it to track strictly within bounds,
+            // but usually clientX/Y is enough if we want it to follow the mouse on screen.
+            // However, since it's inside a relative container, let's just use client coordinates.
+            // If the container scrolls away, the blobs will scroll away with it, which is correct for a section-specific effect.
+            mouseX.set(e.clientX);
+            mouseY.set(e.clientY);
         };
 
         window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("scroll", handleScroll);
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("scroll", handleScroll);
         };
     }, [mouseX, mouseY]);
 
     return (
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-            {/* SVG Filter for Gooey Effect */}
+            {/* SVG Filter for Gooey Effect - Reduced deviation for performance */}
             <svg className="absolute w-0 h-0">
                 <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="25" />
+                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="15" />
                     <feColorMatrix
                         in="blur"
                         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -10"
@@ -66,7 +56,7 @@ export default function GooeyCursor() {
             >
                 {/* Main large blob */}
                 <motion.div
-                    className="absolute w-64 h-64 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-64 h-64 bg-amber-400/80 -translate-x-1/2 -translate-y-1/2"
                     style={{ x: x3, y: y3, willChange: "transform" }}
                     animate={{
                         rotate: [0, 360],
@@ -84,7 +74,7 @@ export default function GooeyCursor() {
                 />
                 {/* Medium blob */}
                 <motion.div
-                    className="absolute w-48 h-48 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-48 h-48 bg-amber-400/80 -translate-x-1/2 -translate-y-1/2"
                     style={{ x: x2, y: y2, willChange: "transform" }}
                     animate={{
                         rotate: [360, 0],
@@ -102,7 +92,7 @@ export default function GooeyCursor() {
                 />
                 {/* Small leading blob */}
                 <motion.div
-                    className="absolute w-32 h-32 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-32 h-32 bg-amber-400/80 -translate-x-1/2 -translate-y-1/2"
                     style={{ x: x1, y: y1, willChange: "transform" }}
                     animate={{
                         rotate: [0, 360],
