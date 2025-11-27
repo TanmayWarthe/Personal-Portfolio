@@ -10,16 +10,16 @@ export default function About() {
 
   const pillars = [
     {
-      title: "Craft with clarity",
-      copy: "I translate fuzzy ideas into crisp user journeys backed by accessible UI and maintainable code.",
+      title: "Full Stack Development (MERN)",
+      copy: "Creating end-to-end web solutions using MongoDB, Express.js, React.js, and Node.js to build responsive, scalable applications.",
     },
-    // {
-    //   title: "Ship with intent",
-    //   copy: "Small experiments + tight feedback loops keep projects moving without losing polish.",
-    // },
     {
-      title: "Grow with community",
-      copy: "Learning in public and mentoring juniors keeps me curious, humble, and plugged into real-world problems.",
+      title: "Cloud Computing & DevOps",
+      copy: "Designing and deploying reliable, automated systems using AWS, Docker, and modern DevOps practices for efficient infrastructure.",
+    },
+    {
+      title: "AI/ML Integration",
+      copy: "Bringing intelligence into practical projects by integrating AI-powered features to create innovative, impactful software solutions.",
     },
   ];
 
@@ -50,11 +50,10 @@ export default function About() {
             <div className="h-px w-8 bg-gradient-to-l from-transparent to-red-300" />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
-            Intentional products built with <span className="text-red-600">heart</span> and a little <span className="text-yellow-600">caffeine</span>
+            Building scalable solutions with <span className="text-red-600">passion</span> and <span className="text-blue-600">precision</span>
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            I blend design sensitivity with engineering rigour to help founders, startups, and teams ship experiences
-            that feel calm, fast, and unforgettable.
+            I'm passionate about creating high-performance applications, exploring cloud computing, and integrating AI-powered features into practical projects to build impactful software solutions.
           </p>
         </motion.div>
 
@@ -65,13 +64,13 @@ export default function About() {
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <h3 className="text-2xl font-bold text-gray-900">Hi, I'm Tanmay 👋</h3>
               <p>
-                I'm a full-stack developer obsessed with building expressive front-ends and resilient back-ends. My
-                background spans freelancing with ambitious founders, working with small SaaS teams, and stewarding
-                design systems that keep multi-platform products consistent.
+                I'm a Computer Technology student at Yeshwantrao Chavan College of Engineering, Nagpur, with a diploma in Computer Technology from Government Polytechnic Bramhapuri. I'm passionate about building scalable, high-performance applications, exploring Cloud & DevOps, and integrating AI-powered features into real-world solutions.
               </p>
               <p>
-                Whether it's a healthcare MVP or an internal tool, I lead with research, sweat the micro-interactions,
-                and obsess over developer experience so teams can iterate faster with confidence.
+                I'm interested in Software Development, where I can combine my coding skills, problem-solving mindset, and passion for clean architecture to build impactful solutions. I'm actively learning tools and technologies like AWS, Git, GitHub, Docker, and Python, while working on personal projects to sharpen my skills.
+              </p>
+              <p>
+                My goal is to build a strong career as a Software Developer while expanding into DevOps and Cloud Engineering, continuously learning and contributing to innovative projects.
               </p>
             </div>
 
@@ -132,7 +131,7 @@ export default function About() {
 
                 <div className="space-y-1 mb-6">
                   <h3 className="text-xl font-bold text-gray-900">Tanmay Warthe</h3>
-                  <p className="text-sm text-gray-500 font-medium">Full-stack developer</p>
+                  <p className="text-sm text-gray-500 font-medium">Computer Technology Student</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 w-full">
@@ -141,14 +140,14 @@ export default function About() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <p className="text-[10px] uppercase tracking-wider text-red-600 font-bold">Focus</p>
-                    <p className="text-sm font-semibold text-gray-900">Craft + Speed</p>
+                    <p className="text-sm font-semibold text-gray-900">MERN + Cloud</p>
                   </motion.div>
                   <motion.div
                     className="p-3 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100/50 border border-gray-200 hover:border-gray-300 transition-all duration-300 cursor-default"
                     whileHover={{ scale: 1.05 }}
                   >
                     <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Location</p>
-                    <p className="text-sm font-semibold text-gray-900">India</p>
+                    <p className="text-sm font-semibold text-gray-900">Nagpur, India</p>
                   </motion.div>
                 </div>
               </div>

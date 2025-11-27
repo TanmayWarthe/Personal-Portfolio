@@ -13,11 +13,11 @@ export default function Education() {
   }), []);
 
   const itemVariants = useMemo(() => ({
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, y: 20 },
     show: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
     },
   }), []);
 

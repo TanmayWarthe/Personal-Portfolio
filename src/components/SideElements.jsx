@@ -21,7 +21,11 @@ export default function SideElements({ email, socialLinks, onIconClick, onEmailC
                                 onClick={() => onIconClick && onIconClick(social.label)}
                                 aria-label={social.label}
                             >
-                                <Icon size={20} strokeWidth={2} />
+                                {social.isCustom ? (
+                                    <Icon size={20} />
+                                ) : (
+                                    <Icon size={20} strokeWidth={2} />
+                                )}
                             </motion.a>
                         );
                     })}

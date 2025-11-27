@@ -67,7 +67,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          A dedicated and disciplined Full Stack engineer who love to create things for internet, having more than 1 years of field experience I've delivered projects to many happy clients over globe.
+          A Computer Technology student at Yeshwantrao Chavan College of Engineering, passionate about building scalable, high-performance applications. I explore Cloud & DevOps while integrating AI-powered features into practical projects to create impactful software solutions.
         </motion.p>
 
         {/* Contact Button - Red */}
