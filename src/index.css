@@ -66,7 +66,6 @@ video {
 /* Remove any conflicting scroll behaviors */
 #root {
   isolation: isolate;
-  contain: layout style paint;
 }
 
 /* Prevent scroll interference on interactive elements */

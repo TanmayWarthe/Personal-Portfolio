@@ -5,7 +5,7 @@ export default function SideElements({ email, socialLinks, onIconClick, onEmailC
     return (
         <>
             {/* Left Side - Social Icons */}
-            <div className="hidden lg:flex fixed left-6 bottom-0 z-50 flex-col items-center gap-5">
+            <div className="hidden lg:flex fixed left-6 bottom-0 z-50 flex-col items-center gap-5" style={{ position: 'fixed' }}>
                 <div className="flex flex-col gap-5">
                     {socialLinks.map((social, index) => {
                         const Icon = social.icon;
@@ -34,7 +34,7 @@ export default function SideElements({ email, socialLinks, onIconClick, onEmailC
             </div>
 
             {/* Right Side - Email */}
-            <div className="hidden lg:flex fixed right-6 bottom-0 z-50 flex-col items-center gap-4">
+            <div className="hidden lg:flex fixed right-6 bottom-0 z-50 flex-col items-center gap-4" style={{ position: 'fixed' }}>
                 <motion.a
                     href={`mailto:${email}`}
                     className="text-gray-600 hover:text-red-600 transition-colors duration-300 text-sm font-medium"
