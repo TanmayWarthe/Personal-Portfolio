@@ -6,7 +6,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <MotionConfig reducedMotion="user">
+    <MotionConfig reducedMotion="user" transition={{ type: "tween", ease: "easeOut", duration: 0.3 }}>
       <App />
     </MotionConfig>
   </StrictMode>,

@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-scroll";
 import DecryptText from "../components/DecryptText";
 import GooeyCursor from "../components/GooeyCursor";
 
@@ -76,14 +75,21 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
+          <button
+            onClick={() => {
+              const element = document.getElementById('contact');
+              if (element && window.lenis) {
+                window.lenis.scrollTo(element, {
+                  offset: -80,
+                  duration: 0.8,
+                  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                });
+              }
+            }}
             className="inline-block px-6 py-3 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer"
           >
             Contact me!
-          </Link>
+          </button>
         </motion.div>
       </motion.div>
 

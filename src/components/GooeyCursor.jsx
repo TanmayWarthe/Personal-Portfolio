@@ -21,16 +21,12 @@ export default function GooeyCursor() {
 
     useEffect(() => {
         const handleMouseMove = (e) => {
-            // Update position relative to the viewport/container
-            // Since the container is absolute/relative in Hero, we might need to adjust logic if we want it to track strictly within bounds,
-            // but usually clientX/Y is enough if we want it to follow the mouse on screen.
-            // However, since it's inside a relative container, let's just use client coordinates.
-            // If the container scrolls away, the blobs will scroll away with it, which is correct for a section-specific effect.
             mouseX.set(e.clientX);
             mouseY.set(e.clientY);
         };
 
-        window.addEventListener("mousemove", handleMouseMove);
+        // Use passive listener for better scroll performance
+        window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);

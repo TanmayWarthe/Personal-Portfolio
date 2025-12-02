@@ -29,7 +29,7 @@ export default function About() {
       className="relative isolate bg-gradient-to-b from-gray-50/50 via-white to-white py-20 sm:py-24 overflow-hidden"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15, margin: "0px 0px -100px 0px" }}
       variants={{
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },

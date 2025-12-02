@@ -108,7 +108,7 @@ export default function Skills() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
+                    viewport={{ once: true, margin: "0px 0px -80px 0px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
@@ -132,7 +132,7 @@ export default function Skills() {
                             variants={getCardVariants(idx)}
                             initial="hidden"
                             whileInView="show"
-                            viewport={{ once: true, amount: 0.1 }}
+                            viewport={{ once: true, amount: 0.1, margin: "0px 0px -50px 0px" }}
                             className="h-full"
                         >
                             <div className="group relative bg-white/80 backdrop-blur-md rounded-[2rem] p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 flex flex-col h-full overflow-hidden hover:-translate-y-2">

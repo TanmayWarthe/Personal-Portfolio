@@ -1,7 +1,6 @@
 // src/components/Navbar.jsx
 import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-scroll";
 import { X, Download, Home, User, GraduationCap, Briefcase, Code, FolderGit, Award, Mail } from "lucide-react";
 
 export default function Navbar() {
@@ -242,13 +241,19 @@ export default function Navbar() {
                       <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-white"></div>
                     </div>
 
-                    <Link
-                      to={item.id}
-                      smooth={true}
-                      duration={600}
-                      offset={-80}
-                      spy={true}
-                      onClick={() => handleItemClick(item)}
+                    <div
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById(item.id);
+                        if (element && window.lenis) {
+                          window.lenis.scrollTo(element, {
+                            offset: -80,
+                            duration: 0.8,
+                            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                          });
+                        }
+                        handleItemClick(item);
+                      }}
                       className="cursor-pointer block"
                     >
                       {/* Circular Icon Button */}
@@ -265,7 +270,7 @@ export default function Navbar() {
                       >
                         <IconComponent size={18} />
                       </motion.div>
-                    </Link>
+                    </div>
                   </motion.div>
                 );
               })}

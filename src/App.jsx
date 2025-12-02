@@ -38,34 +38,75 @@ function App() {
   // Initialize Lenis smooth scroll with optimized settings
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.0,
+      duration: 0.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 0.8,
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 0.8,
       smoothTouch: false,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
       infinite: false,
-      autoResize: true,
-      syncTouch: true,
+      lerp: 0.08,
+      smoothWheel: true,
     });
 
     lenisRef.current = lenis;
 
+    // Add lenis class to html element
+    document.documentElement.classList.add('lenis', 'lenis-smooth');
+
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
-    // Expose lenis to window for react-scroll integration
+    // Expose lenis to window
     window.lenis = lenis;
 
+    // Handle anchor scrolling with Lenis
+    const handleAnchorClick = (e) => {
+      const target = e.target.closest('a[href^="#"]');
+      if (target) {
+        e.preventDefault();
+        const id = target.getAttribute('href').slice(1);
+        const element = document.getElementById(id);
+        if (element) {
+          lenis.scrollTo(element, {
+            offset: -80,
+            duration: 0.8,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          });
+        }
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+
+    // Sync Framer Motion with Lenis scroll - Optimized
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          window.dispatchEvent(new Event('scroll'));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    lenis.on('scroll', handleScroll);
+
     return () => {
+      lenis.off('scroll', handleScroll);
       lenis.destroy();
       window.lenis = null;
+      cancelAnimationFrame(rafId);
+      document.removeEventListener('click', handleAnchorClick);
+      document.documentElement.classList.remove('lenis', 'lenis-smooth');
     };
   }, []);
   return (

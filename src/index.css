@@ -5,6 +5,7 @@
 html.lenis,
 html.lenis body {
   height: auto;
+  overflow: auto;
 }
 
 .lenis.lenis-smooth {
@@ -28,6 +29,7 @@ html,
 body {
   overflow-x: hidden;
   width: 100%;
+  overscroll-behavior: none;
 }
 
 /* Optimize rendering performance */
@@ -36,9 +38,69 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* GPU acceleration for transforms */
+/* Advanced GPU acceleration */
 .will-change-transform {
   will-change: transform;
+}
+
+/* Optimize section rendering with hardware acceleration */
+section,
+main > div {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+/* Optimize images and media */
+img,
+video {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Remove any conflicting scroll behaviors */
+#root {
+  isolation: isolate;
+  contain: layout style paint;
+}
+
+/* Prevent scroll interference on interactive elements */
+[data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Ensure animations don't interfere with scroll */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize framer-motion animations during scroll */
+[data-projection-id] {
+  will-change: transform, opacity;
+}
+
+/* Button and interactive optimizations */
+button,
+a {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* Optimize motion divs */
+[class*="motion"] {
+  will-change: auto;
+}
+
+/* Remove will-change after animation */
+[class*="motion"]:not(:hover):not(:focus) {
+  will-change: auto;
 }
 
 /* Simple float and slow spin animations */

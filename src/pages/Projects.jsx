@@ -44,7 +44,7 @@ export default function Projects() {
             className="relative isolate bg-gradient-to-b from-white via-gray-50 to-white py-16 sm:py-20 overflow-hidden"
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
             variants={{
                 hidden: {},
                 show: { transition: { staggerChildren: 0.15 } },

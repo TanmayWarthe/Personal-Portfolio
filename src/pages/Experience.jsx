@@ -74,7 +74,7 @@ export default function Experience() {
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px -100px 0px" }}
         >
           {/* Vertical Line */}
           <div className="absolute left-4 sm:left-8 top-4 bottom-4 w-0.5 bg-gradient-to-b from-gray-200 via-blue-200 to-gray-200" />

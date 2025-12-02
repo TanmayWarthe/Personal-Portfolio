@@ -55,8 +55,9 @@ function ProjectCard({ title = "Project", description = "", href = "#", tags = [
       className="rounded-2xl border border-red-100 bg-white/90 backdrop-blur-sm p-8 shadow-sm hover:shadow-xl transition-all duration-300"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15, margin: "0px 0px -80px 0px" }}
       variants={cardVariants}
+      style={{ willChange: 'transform, opacity' }}
     >
       <div className={`grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center ${!isEven ? 'lg:grid-cols-[1fr_1.3fr]' : ''}`}>
         {/* Content */}
