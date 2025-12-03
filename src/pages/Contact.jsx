@@ -595,7 +595,7 @@ export default function Contact() {
                             ? 'border-red-500 focus:border-red-500'
                             : 'border-gray-200 focus:border-red-500'
                           }`}
-                        placeholder="John Doe"
+                        placeholder="Enter your name"
                       />
                       {fieldErrors.name && (
                         <p className="mt-2 text-xs text-red-600">{fieldErrors.name}</p>
@@ -617,7 +617,7 @@ export default function Contact() {
                             ? 'border-red-500 focus:border-red-500'
                             : 'border-gray-200 focus:border-red-500'
                           }`}
-                        placeholder="john@example.com"
+                        placeholder="Enter your email"
                       />
                       {fieldErrors.email && (
                         <p className="mt-2 text-xs text-red-600">{fieldErrors.email}</p>
