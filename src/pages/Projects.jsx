@@ -6,8 +6,18 @@ import ProjectCard from "../components/ProjectCard";
 import neuroPharmaImg from "../assets/projects/neuropharma.png";
 import sentientImg from "../assets/projects/sentient.png";
 import holoSpaceImg from "../assets/projects/holospace.jpg";
+import quickMedsImg from "../assets/projects/quickmeds.png";
 
 const projectsData = [
+    {
+        image: quickMedsImg,
+        category: 'HealthTech & E-Commerce',
+        title: 'QuickMeds - Smart Online Pharmacy Platform',
+        description: 'A comprehensive digital pharmacy solution featuring secure OTP-based authentication, real-time inventory management, and intelligent product categorization. Built with Django REST Framework and modern JavaScript, it includes a dynamic cart system with instant price calculations, Razorpay payment integration, and an advanced admin dashboard for order tracking. Implements two-factor email verification for enhanced security and provides seamless prescription management with automated expiry notifications.',
+        tags: ['Python', 'Django', 'JavaScript', 'PostgreSQL', 'Razorpay', 'Bootstrap', 'SMTP'],
+        href: 'https://quickmedsonlinepharmacy.onrender.com/',
+        demoUrl: 'https://quickmedsononlinepharmacy.onrender.com/'
+    },
     {
         image: neuroPharmaImg,
         category: 'HealthTech & AI',
