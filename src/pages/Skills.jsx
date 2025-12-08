@@ -140,44 +140,40 @@ export default function Skills() {
                             viewport={{ once: true, amount: 0.1, margin: "0px 0px -50px 0px" }}
                             className="h-full"
                         >
-                            <div className="group relative bg-white/80 backdrop-blur-md rounded-[2rem] p-6 md:p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 flex flex-row md:flex-col h-full overflow-hidden hover:-translate-y-2">
+                            <div className="group relative bg-white/80 backdrop-blur-md rounded-[2rem] p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 flex flex-col h-full overflow-hidden hover:-translate-y-2">
                                 {/* Glass overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                                 {/* Card Header */}
-                                <div className="flex-shrink-0 mr-4 md:mr-0 md:mb-8 relative z-10">
-                                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-3 md:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                                <div className="mb-8 relative z-10">
+                                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                                         <Icon className="w-7 h-7 text-white" />
                                     </div>
-                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-blue-600 transition-colors">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                                         {category.title}
                                     </h3>
+                                    <p className="text-gray-500 leading-relaxed">{category.description}</p>
                                 </div>
 
-                                {/* Content wrapper for mobile horizontal layout */}
-                                <div className="flex-1 flex flex-col relative z-10">
-                                    <p className="text-gray-500 leading-relaxed mb-3 md:mb-0 text-sm md:text-base hidden md:block">{category.description}</p>
-
-                                    {/* Skills List */}
-                                    <div className="flex flex-wrap gap-3 mt-auto">
-                                        {category.skills.map((skill, skillIdx) => (
-                                            <div
-                                                key={skillIdx}
-                                                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50/80 hover:bg-white border border-gray-100 hover:border-blue-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-default group/skill"
-                                            >
-                                                <img
-                                                    src={skill.icon}
-                                                    alt={skill.name}
-                                                    className="w-5 h-5 object-contain group-hover/skill:scale-110 transition-transform"
-                                                    loading="lazy"
-                                                    decoding="async"
-                                                />
-                                                <span className="text-sm font-medium text-gray-700 group-hover/skill:text-gray-900">
-                                                    {skill.name}
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </div>
+                                {/* Skills List */}
+                                <div className="flex flex-wrap gap-3 mt-auto relative z-10">
+                                    {category.skills.map((skill, skillIdx) => (
+                                        <div
+                                            key={skillIdx}
+                                            className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50/80 hover:bg-white border border-gray-100 hover:border-blue-200 shadow-sm hover:shadow-md transition-all duration-300 cursor-default group/skill"
+                                        >
+                                            <img
+                                                src={skill.icon}
+                                                alt={skill.name}
+                                                className="w-5 h-5 object-contain group-hover/skill:scale-110 transition-transform"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                            <span className="text-sm font-medium text-gray-700 group-hover/skill:text-gray-900">
+                                                {skill.name}
+                                            </span>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </motion.div>
