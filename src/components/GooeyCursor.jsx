@@ -5,19 +5,19 @@ export default function GooeyCursor() {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // Smoother spring configurations
-    const springConfigMain = { stiffness: 300, damping: 30, mass: 1 };
-    const springConfigTrailing = { stiffness: 150, damping: 25, mass: 1.2 };
-    const springConfigLast = { stiffness: 100, damping: 30, mass: 1.5 };
+    // Multi-layered spring for water drop flow effect with realistic physics
+    const springConfigFast = { stiffness: 300, damping: 30, mass: 1 };
+    const springConfigMid = { stiffness: 200, damping: 35, mass: 1.5 };
+    const springConfigSlow = { stiffness: 150, damping: 40, mass: 2 };
 
-    const x1 = useSpring(mouseX, springConfigMain);
-    const y1 = useSpring(mouseY, springConfigMain);
-
-    const x2 = useSpring(mouseX, springConfigTrailing);
-    const y2 = useSpring(mouseY, springConfigTrailing);
-
-    const x3 = useSpring(mouseX, springConfigLast);
-    const y3 = useSpring(mouseY, springConfigLast);
+    const x1 = useSpring(mouseX, springConfigFast);
+    const y1 = useSpring(mouseY, springConfigFast);
+    
+    const x2 = useSpring(mouseX, springConfigMid);
+    const y2 = useSpring(mouseY, springConfigMid);
+    
+    const x3 = useSpring(mouseX, springConfigSlow);
+    const y3 = useSpring(mouseY, springConfigSlow);
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -25,7 +25,6 @@ export default function GooeyCursor() {
             mouseY.set(e.clientY);
         };
 
-        // Use passive listener for better scroll performance
         window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
         return () => {
@@ -35,13 +34,13 @@ export default function GooeyCursor() {
 
     return (
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-            {/* SVG Filter for Gooey Effect - Reduced deviation for performance */}
+            {/* SVG Filter for Gooey Effect */}
             <svg className="absolute w-0 h-0">
                 <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="15" />
+                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="20" />
                     <feColorMatrix
                         in="blur"
-                        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -10"
+                        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -8"
                     />
                 </filter>
             </svg>
@@ -50,58 +49,63 @@ export default function GooeyCursor() {
                 className="w-full h-full opacity-80"
                 style={{ filter: "url(#goo)", willChange: "transform" }}
             >
-                {/* Main large blob */}
+                {/* Trailing drop - slowest */}
                 <motion.div
-                    className="absolute w-64 h-64 bg-amber-400/80 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-52 h-52 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
                     style={{ x: x3, y: y3, willChange: "transform" }}
                     animate={{
                         rotate: [0, 360],
                         borderRadius: [
-                            "30% 70% 70% 30% / 30% 30% 70% 70%",
-                            "60% 40% 30% 70% / 60% 30% 70% 40%",
-                            "30% 70% 70% 30% / 30% 30% 70% 70%"
+                            "50% 50% 50% 50%",
+                            "40% 60% 60% 40%",
+                            "60% 40% 40% 60%",
+                            "50% 50% 50% 50%"
                         ]
                     }}
                     transition={{
-                        duration: 10,
+                        duration: 4,
                         repeat: Infinity,
-                        ease: "linear"
+                        ease: "easeInOut"
                     }}
                 />
-                {/* Medium blob */}
+                
+                {/* Middle drop - medium speed */}
                 <motion.div
-                    className="absolute w-48 h-48 bg-amber-400/80 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-60 h-60 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
                     style={{ x: x2, y: y2, willChange: "transform" }}
                     animate={{
                         rotate: [360, 0],
                         borderRadius: [
-                            "50% 50% 20% 80% / 25% 80% 20% 75%",
-                            "60% 40% 30% 70% / 60% 30% 70% 40%",
-                            "50% 50% 20% 80% / 25% 80% 20% 75%"
+                            "50% 50% 50% 50%",
+                            "45% 55% 55% 45%",
+                            "55% 45% 45% 55%",
+                            "50% 50% 50% 50%"
                         ]
                     }}
                     transition={{
-                        duration: 8,
+                        duration: 3.5,
                         repeat: Infinity,
-                        ease: "linear"
+                        ease: "easeInOut"
                     }}
                 />
-                {/* Small leading blob */}
+                
+                {/* Leading drop - fastest */}
                 <motion.div
-                    className="absolute w-32 h-32 bg-amber-400/80 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-72 h-72 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
                     style={{ x: x1, y: y1, willChange: "transform" }}
                     animate={{
                         rotate: [0, 360],
                         borderRadius: [
-                            "40% 60% 60% 40% / 40% 40% 60% 60%",
-                            "20% 80% 20% 80% / 20% 80% 20% 80%",
-                            "40% 60% 60% 40% / 40% 40% 60% 60%"
+                            "50% 50% 50% 50%",
+                            "48% 52% 52% 48%",
+                            "52% 48% 48% 52%",
+                            "50% 50% 50% 50%"
                         ]
                     }}
                     transition={{
-                        duration: 6,
+                        duration: 3,
                         repeat: Infinity,
-                        ease: "linear"
+                        ease: "easeInOut"
                     }}
                 />
             </div>

@@ -6,6 +6,7 @@ import { X, Download, Home, User, GraduationCap, Briefcase, Code, FolderGit, Awa
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
 
@@ -16,6 +17,31 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Detect active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "about", "education", "experience", "skills", "projects", "contact"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -216,6 +242,7 @@ export default function Navbar() {
 
               {navItems.map((item, i) => {
                 const IconComponent = item.icon;
+                const isActive = activeSection === item.id;
                 return (
                   <motion.div
                     key={item.id}
@@ -234,11 +261,17 @@ export default function Navbar() {
                     <div
                       className="absolute right-full mr-3 top-1/2 -translate-y-1/2 pointer-events-none z-50 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150 ease-out"
                     >
-                      <div className="bg-white text-gray-800 text-xs font-semibold px-2.5 py-1 rounded-lg shadow-lg whitespace-nowrap border border-gray-200">
+                      <div className={`text-xs font-semibold px-2.5 py-1 rounded-lg shadow-lg whitespace-nowrap border ${
+                        isActive 
+                          ? 'bg-amber-400 text-gray-900 border-amber-500' 
+                          : 'bg-white text-gray-800 border-gray-200'
+                      }`}>
                         {item.label}
                       </div>
                       {/* Arrow pointing to icon */}
-                      <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-white"></div>
+                      <div className={`absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] ${
+                        isActive ? 'border-l-amber-400' : 'border-l-white'
+                      }`}></div>
                     </div>
 
                     <div
@@ -258,12 +291,16 @@ export default function Navbar() {
                     >
                       {/* Circular Icon Button */}
                       <motion.div
-                        className="w-11 h-11 rounded-full bg-white border-2 border-red-600 flex items-center justify-center text-red-600 shadow-md hover:shadow-lg transition-all duration-150"
+                        className={`w-11 h-11 rounded-full border-2 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-150 ${
+                          isActive
+                            ? 'bg-amber-400 border-amber-500 text-gray-900'
+                            : 'bg-white border-red-600 text-red-600'
+                        }`}
                         whileHover={{
                           scale: 1.15,
                           rotate: 360,
-                          backgroundColor: "#DC2626",
-                          color: "#FFFFFF",
+                          backgroundColor: isActive ? "#fbbf24" : "#DC2626",
+                          color: isActive ? "#111827" : "#FFFFFF",
                         }}
                         whileTap={{ scale: 0.85 }}
                         transition={{ duration: 0.15, ease: "easeOut" }}
