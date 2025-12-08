@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 
 // Import project images
-import neuroPharmaImg from "../assets/projects/neuropharma.png";
-import sentientImg from "../assets/projects/sentient.png";
-import holoSpaceImg from "../assets/projects/holospace.jpg";
+// import neuroPharmaImg from "../assets/projects/neuropharma.png";
+// import sentientImg from "../assets/projects/sentient.png";
+// import holoSpaceImg from "../assets/projects/holospace.jpg";
 import quickMedsImg from "../assets/projects/quickmeds.png";
 
 const projectsData = [
@@ -18,33 +18,33 @@ const projectsData = [
         href: 'https://github.com/TanmayWarthe/QuickMeds-An-Online-Pharamacy',
         demoUrl: 'https://quickmedsonlinepharmacy.onrender.com/'
     },
-    {
-        image: neuroPharmaImg,
-        category: 'HealthTech & AI',
-        title: 'NeuroPharma - AI Drug Discovery Pipeline',
-        description: 'A revolutionary platform accelerating drug discovery using Graph Neural Networks (GNNs) to predict molecular properties and drug-target interactions. It features a real-time 3D molecular viewer, automated literature mining from PubMed using NLP, and a secure cloud infrastructure for processing terabytes of genomic data. Reduced preliminary screening time by 40% in simulation tests.',
-        tags: ['Python', 'PyTorch', 'React Three Fiber', 'AWS SageMaker', 'FastAPI', 'BioPython'],
-        href: '#',
-        demoUrl: '#'
-    },
-    {
-        image: sentientImg,
-        category: 'FinTech & Autonomous Agents',
-        title: 'Sentient - Autonomous Financial Analyst',
-        description: 'An autonomous multi-agent system capable of performing deep fundamental analysis of stock markets. "Sentient" aggregates real-time news, analyzes sentiment from social media, and processes financial reports to generate investment memos. Built with a microservices architecture, it utilizes vector databases for long-term memory and runs on a custom-tuned LLM for domain-specific financial reasoning.',
-        tags: ['LangChain', 'Pinecone', 'Next.js', 'Docker', 'Kubernetes', 'Celery'],
-        href: '#',
-        demoUrl: '#'
-    },
-    {
-        image: holoSpaceImg,
-        category: 'WebXR & Collaboration',
-        title: 'HoloSpace - Immersive 3D Workspace',
-        description: 'A browser-based spatial collaboration tool that brings remote teams together in a 3D virtual office. Leveraging WebRTC for low-latency voice/video and WebGL for rendering, it allows users to manipulate 3D objects, share screens on virtual monitors, and whiteboard in real-time. Pushes the boundaries of what is possible in a web browser without external plugins.',
-        tags: ['Three.js', 'WebRTC', 'Socket.io', 'TypeScript', 'WebGL', 'Node.js'],
-        href: '#',
-        demoUrl: '#'
-    }
+    // {
+    //     image: neuroPharmaImg,
+    //     category: 'HealthTech & AI',
+    //     title: 'NeuroPharma - AI Drug Discovery Pipeline',
+    //     description: 'A revolutionary platform accelerating drug discovery using Graph Neural Networks (GNNs) to predict molecular properties and drug-target interactions. It features a real-time 3D molecular viewer, automated literature mining from PubMed using NLP, and a secure cloud infrastructure for processing terabytes of genomic data. Reduced preliminary screening time by 40% in simulation tests.',
+    //     tags: ['Python', 'PyTorch', 'React Three Fiber', 'AWS SageMaker', 'FastAPI', 'BioPython'],
+    //     href: '#',
+    //     demoUrl: '#'
+    // },
+    // {
+    //     image: sentientImg,
+    //     category: 'FinTech & Autonomous Agents',
+    //     title: 'Sentient - Autonomous Financial Analyst',
+    //     description: 'An autonomous multi-agent system capable of performing deep fundamental analysis of stock markets. "Sentient" aggregates real-time news, analyzes sentiment from social media, and processes financial reports to generate investment memos. Built with a microservices architecture, it utilizes vector databases for long-term memory and runs on a custom-tuned LLM for domain-specific financial reasoning.',
+    //     tags: ['LangChain', 'Pinecone', 'Next.js', 'Docker', 'Kubernetes', 'Celery'],
+    //     href: '#',
+    //     demoUrl: '#'
+    // },
+    // {
+    //     image: holoSpaceImg,
+    //     category: 'WebXR & Collaboration',
+    //     title: 'HoloSpace - Immersive 3D Workspace',
+    //     description: 'A browser-based spatial collaboration tool that brings remote teams together in a 3D virtual office. Leveraging WebRTC for low-latency voice/video and WebGL for rendering, it allows users to manipulate 3D objects, share screens on virtual monitors, and whiteboard in real-time. Pushes the boundaries of what is possible in a web browser without external plugins.',
+    //     tags: ['Three.js', 'WebRTC', 'Socket.io', 'TypeScript', 'WebGL', 'Node.js'],
+    //     href: '#',
+    //     demoUrl: '#'
+    // }
 ];
 
 export default function Projects() {
