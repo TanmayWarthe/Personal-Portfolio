@@ -15,7 +15,7 @@ const projectsData = [
         title: 'QuickMeds - Smart Online Pharmacy Platform',
         description: 'A comprehensive digital pharmacy solution featuring secure OTP-based authentication, real-time inventory management, and intelligent product categorization. Built with Django REST Framework and modern JavaScript, it includes a dynamic cart system with instant price calculations, Razorpay payment integration, and an advanced admin dashboard for order tracking. Implements two-factor email verification for enhanced security and provides seamless prescription management with automated expiry notifications.',
         tags: ['Python', 'Django', 'JavaScript', 'PostgreSQL', 'Razorpay', 'Bootstrap', 'SMTP'],
-        href: 'https://quickmedsonlinepharmacy.onrender.com/',
+        href: 'https://github.com/TanmayWarthe/QuickMeds-An-Online-Pharamacy',
         demoUrl: 'https://quickmedsononlinepharmacy.onrender.com/'
     },
     {
