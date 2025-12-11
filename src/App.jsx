@@ -5,6 +5,7 @@ import Lenis from "lenis";
 // Components
 import Navbar from "./components/Navbar";
 import SideElements from "./components/SideElements";
+import { FireBall } from "./components/ui/FireBall";
 
 // Custom LeetCode Icon Component
 const LeetCodeIcon = ({ size = 20, strokeWidth = 2 }) => (
@@ -111,6 +112,29 @@ function App() {
   }, []);
   return (
     <div className="bg-white text-gray-800 min-h-screen flex flex-col">
+      {/* FireBall Mouse Effect */}
+      <FireBall
+        particleColors={["#3b82f6", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981"]}
+        particleOpacity={0.85}
+        background="transparent"
+        particleRadiusRange={[1, 3]}
+        maxParticles={100}
+        particlesPerBurst={6}
+        maxBurstsPerSecond={15}
+        particleLifeRange={[200, 400]}
+        speedRange={[0.3, 1.2]}
+        drift={0.08}
+        gravity={0.02}
+        decay={0.92}
+        cursorSize={16}
+        cursorOutlineWidth={2}
+        cursorOutlineColor="rgba(59, 130, 246, 0.8)"
+        cursorShadowBlur={8}
+        cursorShadowColor="rgba(59, 130, 246, 0.4)"
+        fullScreen={true}
+        style={{ zIndex: 9999, pointerEvents: "none" }}
+      />
+
       {/* Navbar */}
       <Navbar />
 
