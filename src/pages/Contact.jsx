@@ -592,8 +592,8 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className={`w-full px-4 py-3 border-2 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none transition-all ${fieldErrors.name
-                            ? 'border-red-500 focus:border-red-500'
-                            : 'border-gray-200 focus:border-red-500'
+                          ? 'border-red-500 focus:border-red-500'
+                          : 'border-gray-200 focus:border-red-500'
                           }`}
                         placeholder="Enter your name"
                       />
@@ -614,8 +614,8 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className={`w-full px-4 py-3 border-2 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none transition-all ${fieldErrors.email
-                            ? 'border-red-500 focus:border-red-500'
-                            : 'border-gray-200 focus:border-red-500'
+                          ? 'border-red-500 focus:border-red-500'
+                          : 'border-gray-200 focus:border-red-500'
                           }`}
                         placeholder="Enter your email"
                       />
@@ -637,8 +637,8 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       className={`w-full px-4 py-3 border-2 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none transition-all ${fieldErrors.subject
-                          ? 'border-red-500 focus:border-red-500'
-                          : 'border-gray-200 focus:border-red-500'
+                        ? 'border-red-500 focus:border-red-500'
+                        : 'border-gray-200 focus:border-red-500'
                         }`}
                       placeholder="What's this about?"
                     />
@@ -653,10 +653,10 @@ export default function Contact() {
                         Message *
                       </label>
                       <span className={`text-xs ${formData.message.length > 2000
-                          ? 'text-red-600'
-                          : formData.message.length > 1800
-                            ? 'text-yellow-600'
-                            : 'text-gray-400'
+                        ? 'text-red-600'
+                        : formData.message.length > 1800
+                          ? 'text-yellow-600'
+                          : 'text-gray-400'
                         }`}>
                         {formData.message.length}/2000
                       </span>
@@ -670,8 +670,8 @@ export default function Contact() {
                       rows={5}
                       maxLength={2000}
                       className={`w-full px-4 py-3 border-2 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none transition-all resize-none ${fieldErrors.message
-                          ? 'border-red-500 focus:border-red-500'
-                          : 'border-gray-200 focus:border-red-500'
+                        ? 'border-red-500 focus:border-red-500'
+                        : 'border-gray-200 focus:border-red-500'
                         }`}
                       placeholder="Tell me about your project or inquiry..."
                     />
