@@ -5,6 +5,7 @@ import Lenis from "lenis";
 // Components
 import Navbar from "./components/Navbar";
 import SideElements from "./components/SideElements";
+import SideElementsMobileIcons from "./components/SideElementsMobileIcons";
 import { FireBall } from "./components/ui/FireBall";
 
 // Custom LeetCode Icon Component
@@ -208,6 +209,17 @@ function App() {
             <Contact />
           </Suspense>
         </div>
+        {/* Mobile Social Icons (bottom of last section, not sticky) */}
+        <SideElementsMobileIcons
+          socialLinks={[
+            { icon: Github, href: 'https://github.com/TanmayWarthe', label: 'GitHub' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/tanmay-warthe/', label: 'LinkedIn' },
+            { icon: LeetCodeIcon, href: 'https://leetcode.com/u/_tanmaaay/', label: 'LeetCode', isCustom: true },
+            { icon: Twitter, href: 'https://x.com/_tanmay_warthe', label: 'Twitter' },
+            { icon: Instagram, href: 'https://instagram.com/_tanmaaay', label: 'Instagram' },
+          ]}
+          onIconClick={(label) => console.log(`Clicked ${label}`)}
+        />
       </main>
 
     </div>
