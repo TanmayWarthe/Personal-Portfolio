@@ -98,7 +98,7 @@ export default function Navbar() {
         <AnimatePresence>
           {!isScrolled && (
             <motion.a
-              href="/resume.pdf"
+              href="/dist/Tanmay_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 border-2 border-red-600 text-red-700 rounded-lg font-medium text-sm hover:bg-red-50 transition-all duration-300 flex items-center gap-2 whitespace-nowrap bg-white shadow-md"
@@ -211,7 +211,7 @@ export default function Navbar() {
                     </div>
 
                     <a
-                      href="/resume.pdf"
+                      href="/dist/Tanmay_Resume.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block"
