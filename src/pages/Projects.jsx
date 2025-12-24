@@ -7,6 +7,7 @@ import ProjectCard from "../components/ProjectCard";
 // import sentientImg from "../assets/projects/sentient.png";
 // import holoSpaceImg from "../assets/projects/holospace.jpg";
 import quickMedsImg from "../assets/projects/quickmeds.png";
+import personalLearningImg from "../assets/projects/personallearning.png";
 
 const projectsData = [
     {
@@ -18,6 +19,15 @@ const projectsData = [
         href: 'https://github.com/TanmayWarthe/QuickMeds-An-Online-Pharamacy',
         demoUrl: 'https://quickmedsonlinepharmacy.onrender.com/'
     },
+    {
+    image: personalLearningImg, // Replace with your actual image import/variable
+    category: 'EdTech & Personal Growth',
+    title: 'Personal Learning Platform',
+    description: 'A full-stack platform empowering users to master new skills at their own pace. Features include user authentication, personalized dashboards, course and video management, progress tracking, and learning streaks. Built with Next.js, Node.js, and PostgreSQL, it offers a modern UI, secure login, and seamless integration between frontend and backend. Users can import playlists, monitor their achievements, and enjoy a tailored learning journey.',
+    tags: ['Next.js', 'React', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS', 'JWT'],
+    href: 'https://github.com/TanmayWarthe/personal-learning-platform',
+    demoUrl: 'https://self-learning-hub.vercel.app/'
+}
     // {
     //     image: neuroPharmaImg,
     //     category: 'HealthTech & AI',
