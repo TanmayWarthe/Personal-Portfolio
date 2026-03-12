@@ -8,6 +8,7 @@ import ProjectCard from "../components/ProjectCard";
 // import holoSpaceImg from "../assets/projects/holospace.jpg";
 import quickMedsImg from "../assets/projects/quickmeds.png";
 import personalLearningImg from "../assets/projects/personalLearningImg.png";
+import bloodConnectImg from "../assets/projects/bloodConnectImg.png";
 
 const projectsData = [
   {
@@ -46,6 +47,27 @@ const projectsData = [
     href: "https://github.com/TanmayWarthe/personal-learning-platform",
     demoUrl: "https://self-learning-hub.vercel.app/",
   },
+  {
+  image: bloodConnectImg,
+  category: "HealthTech & Emergency Services",
+  title: "BloodConnect - AI-Powered Blood Donation Platform",
+  description:
+    "A comprehensive full-stack platform revolutionizing blood donation and emergency blood request management. Seamlessly connects blood donors, hospitals, and patients through intelligent matching and real-time coordination. Features include AI-powered demand prediction, interactive donor-hospital mapping, multi-role dashboards (Admin, Hospital, Donor, Patient), blood inventory tracking, appointment scheduling, and emergency notifications. Built with Spring Boot, React, and PostgreSQL, it leverages Google Gemini AI for smart insights, secure JWT authentication, and location-based services via Leaflet maps. The platform enables life-saving connections with predictive analytics for blood shortages, donor availability matching, and efficient resource planning.",
+  tags: [
+    "React",
+    "Spring Boot",
+    "Java",
+    "PostgreSQL",
+    "Tailwind CSS",
+    "JWT",
+    "Leaflet Maps",
+    "Google Gemini AI",
+    "MySQL",
+    "REST API",
+  ],
+  href: "https://github.com/TanmayWarthe/BloodConnect",
+  demoUrl: "https://bloodconnect.vercel.app/",
+},
   // {
   //     image: neuroPharmaImg,
   //     category: 'HealthTech & AI',

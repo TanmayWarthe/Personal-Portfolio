@@ -5,7 +5,6 @@ export default function GooeyCursor() {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // Multi-layered spring for water drop flow effect with realistic physics
     const springConfigFast = { stiffness: 300, damping: 30, mass: 1 };
     const springConfigMid = { stiffness: 200, damping: 35, mass: 1.5 };
     const springConfigSlow = { stiffness: 150, damping: 40, mass: 2 };
@@ -49,7 +48,7 @@ export default function GooeyCursor() {
                 className="w-full h-full opacity-80"
                 style={{ filter: "url(#goo)", willChange: "transform" }}
             >
-                {/* Trailing drop - slowest */}
+               
                 <motion.div
                     className="absolute w-52 h-52 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
                     style={{ x: x3, y: y3, willChange: "transform" }}
@@ -69,7 +68,7 @@ export default function GooeyCursor() {
                     }}
                 />
                 
-                {/* Middle drop - medium speed */}
+                
                 <motion.div
                     className="absolute w-60 h-60 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
                     style={{ x: x2, y: y2, willChange: "transform" }}
@@ -89,7 +88,7 @@ export default function GooeyCursor() {
                     }}
                 />
                 
-                {/* Leading drop - fastest */}
+
                 <motion.div
                     className="absolute w-72 h-72 bg-amber-400 -translate-x-1/2 -translate-y-1/2"
                     style={{ x: x1, y: y1, willChange: "transform" }}
